@@ -29,6 +29,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web", "M:\Server\PriProc6\a
 		SlnRelativePath = "web\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{1E19B742-6642-4D1C-A53D-2305FA305C50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feeds", "Feeds", "{072C022B-423F-4B30-89FA-F4EDE755C897}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Handlers", "Handlers", "{8CDA737F-F89F-4B72-B3E9-0EA49B363736}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,5 +56,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE4B8869-D8DD-46DB-B680-7807E1162642} = {1E19B742-6642-4D1C-A53D-2305FA305C50}
+		{FC6E5C6D-2D8D-4327-9014-1E98F0AC2EEA} = {8CDA737F-F89F-4B72-B3E9-0EA49B363736}
+		{072C022B-423F-4B30-89FA-F4EDE755C897} = {1E19B742-6642-4D1C-A53D-2305FA305C50}
+		{8CDA737F-F89F-4B72-B3E9-0EA49B363736} = {1E19B742-6642-4D1C-A53D-2305FA305C50}
 	EndGlobalSection
 EndGlobal
