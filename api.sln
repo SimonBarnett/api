@@ -12,21 +12,21 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "web", "M:\Server\PriProc6\a
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
 		ProjectReferences = "{be4b8869-d8dd-46db-b680-7807e1162642}|WebInterface.dll;{fc6e5c6d-2d8d-4327-9014-1e98f0ac2eea}|sqlHandler.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_60306"
-		Debug.AspNetCompiler.PhysicalPath = "web\"
+		Debug.AspNetCompiler.PhysicalPath = "M:\Server\PriProc6\api\web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60306\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_60306"
-		Release.AspNetCompiler.PhysicalPath = "web\"
+		Release.AspNetCompiler.PhysicalPath = "M:\Server\PriProc6\api\web\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60306\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "60306"
-		SlnRelativePath = "web\"
+		SlnRelativePath = "M:\Server\PriProc6\api\web\"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{1E19B742-6642-4D1C-A53D-2305FA305C50}"
@@ -34,6 +34,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feeds", "Feeds", "{072C022B-423F-4B30-89FA-F4EDE755C897}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Handlers", "Handlers", "{8CDA737F-F89F-4B72-B3E9-0EA49B363736}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Web.Feed.TestFeed", "webModules\feeds\TestFeed\Web.Feed.TestFeed.vbproj", "{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{0F58433D-FE2B-4A98-B16B-D400F5DF208A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F58433D-FE2B-4A98-B16B-D400F5DF208A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F58433D-FE2B-4A98-B16B-D400F5DF208A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{FC6E5C6D-2D8D-4327-9014-1E98F0AC2EEA} = {8CDA737F-F89F-4B72-B3E9-0EA49B363736}
 		{072C022B-423F-4B30-89FA-F4EDE755C897} = {1E19B742-6642-4D1C-A53D-2305FA305C50}
 		{8CDA737F-F89F-4B72-B3E9-0EA49B363736} = {1E19B742-6642-4D1C-A53D-2305FA305C50}
+		{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D} = {072C022B-423F-4B30-89FA-F4EDE755C897}
 	EndGlobalSection
 EndGlobal
