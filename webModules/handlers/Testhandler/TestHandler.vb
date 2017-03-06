@@ -4,7 +4,6 @@ Imports System.Web
 Imports PriPROC6.Interface.Web
 Imports PriPROC6.svcMessage
 Imports PriPROC6.Interface.Message
-Imports PriPROC6.Loading
 
 <Export(GetType(xmlHandler))>
 <ExportMetadata("EndPoint", "testhandler")>
@@ -33,17 +32,7 @@ Public Class TestHandler : Inherits iHandler : Implements xmlHandler
 
         log.LogData.Append("Some debug info...").AppendLine()
 
-        Using erl As New ldDef
-            With erl
-                .AddRecordType(1) = New Loading.LoadRow(
-                    "Fred"
-                )
 
-                Dim exp As New Exception
-                If Not .Post(HttpContext.Current, msgfactory, exp) Then Throw exp
-
-            End With
-        End Using
     End Sub
 
 End Class

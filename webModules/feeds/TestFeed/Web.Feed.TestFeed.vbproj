@@ -46,6 +46,14 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessageInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>M:\Server\PriProc6\api\web\bin\MessageInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="svcMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>M:\Server\PriProc6\api\web\bin\svcMessage.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -105,15 +113,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\interfaces\MessageInterface\Interface.Message.vbproj">
-      <Project>{1F1E19DB-2089-482C-9E33-CF2422E27199}</Project>
-      <Name>Interface.Message</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\modules\messages\svcMessage.vbproj">
-      <Project>{ada93d6f-4915-4a49-94d1-318347ed1a1d}</Project>
-      <Name>svcMessage</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\WebInterface\Interface.Web.vbproj">
+    <ProjectReference Include="..\..\..\webinterface\Interface.Web.vbproj">
       <Project>{be4b8869-d8dd-46db-b680-7807e1162642}</Project>
       <Name>Interface.Web</Name>
     </ProjectReference>

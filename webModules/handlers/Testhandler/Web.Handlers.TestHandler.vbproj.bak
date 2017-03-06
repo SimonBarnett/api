@@ -4,21 +4,22 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{59670982-F973-457C-96D6-70E22280D1D3}</ProjectGuid>
+    <ProjectGuid>{EC84C012-9C59-48B3-9AF5-6934FBCA0741}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PriPROC6.Web.Handlers.loadHandler</RootNamespace>
-    <AssemblyName>loadHandler</AssemblyName>
+    <RootNamespace>PriPROC6.Web.Handlers.TestHandler</RootNamespace>
+    <AssemblyName>Testhandler</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\..\web\Bin\</OutputPath>
-    <DocumentationFile>loadHandler.xml</DocumentationFile>
+    <OutputPath>..\..\..\web\bin\</OutputPath>
+    <DocumentationFile>Testhandler.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +28,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>loadHandler.xml</DocumentationFile>
+    <DocumentationFile>Testhandler.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -43,6 +44,14 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessageInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\walrus\nas\prioritymobile\Server\PriProc6\api\web\bin\MessageInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="svcMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\walrus\nas\prioritymobile\Server\PriProc6\api\web\bin\svcMessage.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -65,7 +74,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="loadHandler.vb" />
+    <Compile Include="TestHandler.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -102,17 +111,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\interfaces\MessageInterface\Interface.Message.vbproj">
-      <Project>{1f1e19db-2089-482c-9e33-cf2422e27199}</Project>
-      <Name>Interface.Message</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\submodules\PriSock\PriSock.vbproj">
-      <Project>{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}</Project>
-      <Name>PriSock</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\modules\messages\svcMessage.vbproj">
-      <Project>{ada93d6f-4915-4a49-94d1-318347ed1a1d}</Project>
-      <Name>svcMessage</Name>
+    <ProjectReference Include="..\..\..\webinterface\Interface.Web.vbproj">
+      <Project>{be4b8869-d8dd-46db-b680-7807e1162642}</Project>
+      <Name>Interface.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

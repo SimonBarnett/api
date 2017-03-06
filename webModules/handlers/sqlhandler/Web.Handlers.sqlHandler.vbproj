@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\web\bin\</OutputPath>
+    <OutputPath>D:\nas\PriorityMobile\Server\PriProc6\api\web\bin\</OutputPath>
     <DocumentationFile>sqlHandler.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>

@@ -44,9 +44,27 @@ Public Class httpHandler : Implements IHttpHandler
         End Get
     End Property
 
+    ReadOnly Property LogServer As String
+        Get
+            Try
+                Return WebConfigurationManager.AppSettings("LogServer")
+
+            Catch ex As Exception
+                Return String.Empty
+
+            End Try
+        End Get
+    End Property
+
     ReadOnly Property logPort As Integer
         Get
-            Return WebConfigurationManager.AppSettings("logPort")
+            Try
+                Return WebConfigurationManager.AppSettings("logPort")
+
+            Catch ex As Exception
+                Return String.Empty
+
+            End Try
         End Get
     End Property
 
@@ -97,7 +115,17 @@ Public Class httpHandler : Implements IHttpHandler
                 Dim container As New CompositionContainer(catalog)
                 container.ComposeParts(Me)
 
-                _msgFactory = New msgFactory(Messages)
+                Dim mefmsg As New Dictionary(Of String, msgInterface)
+                For Each msg As Lazy(Of msgInterface, msgInterfaceData) In _Messages
+                    If Not mefmsg.Keys.Contains(String.Format("{0}:{1}", msg.Metadata.verb, msg.Metadata.msgType)) Then
+                        With msg.Value
+                            .msgType = msg.Metadata.msgType
+                        End With
+                        mefmsg.Add(String.Format("{0}:{1}", msg.Metadata.verb, msg.Metadata.msgType), msg.Value)
+                    End If
+                Next
+
+                _msgFactory = New msgFactory(mefmsg)
 
                 log.LogData.AppendFormat(
                     "Received {0} {1} from {2}.",
@@ -171,13 +199,14 @@ Public Class httpHandler : Implements IHttpHandler
                 End With
 
             Finally
-                Try
-                    Using cli As New iClient(Service, logPort, 1)
-                        cli.Send(msgFactory.EncodeRequest("log", log))
-                    End Using
+                If Len(LogServer) > 0 Then
+                    Try
+                        Using cli As New iClient(LogServer, logPort, 1)
+                            cli.Send(msgFactory.EncodeRequest("log", log))
+                        End Using
 
-                Catch : End Try
-
+                    Catch : End Try
+                End If
             End Try
 
         End Using
