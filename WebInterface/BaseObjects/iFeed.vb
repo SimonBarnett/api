@@ -80,6 +80,9 @@ Public MustInherit Class iFeed : Inherits EndPoint
         ' --- 20/04/2013 - si
         ' --- Impliment SQL parameters from the request string.
 
+        ' --- 09/03/2017 - si
+        ' --- Added support for non-character data types in request.
+
         ' Check the .sql for mandatory fields
         Dim Mandatory As Regex = New Regex(
             "declare.*@.*--.*mandatory",
@@ -112,7 +115,7 @@ Public MustInherit Class iFeed : Inherits EndPoint
         For Each k As String In GETRequest.Keys
             Dim declaration As Regex = New Regex(
                 String.Format(
-                    "declare.*@{0}",
+                    "declare.*@{0}.*",
                     k
                 ),
                 RegexOptions.IgnoreCase
@@ -123,10 +126,14 @@ Public MustInherit Class iFeed : Inherits EndPoint
                 ' Get the parameter name from the DECLARE statement
                 Dim MatchVal As String = declaration.Match(sqlString).Value
                 Dim VarName As String = Trim(
-                    MatchVal.Substring(
-                        MatchVal.IndexOf("@")
-                    )
+                    MatchVal.Substring(MatchVal.IndexOf("@")).Split(" ")(0)
                 )
+
+                ' Get the type of the variable
+                Dim vType As Regex = New Regex(
+                    "[A-Za-z]+"
+                )
+                Dim VarType As String = vType.Matches(Split(MatchVal, VarName)(1))(0).Value.ToLower
 
                 ' Find the SET statement
                 Dim SetStatement As Regex = New Regex(
@@ -160,9 +167,9 @@ Public MustInherit Class iFeed : Inherits EndPoint
                     sqlString = SetStatement.Replace(
                         sqlString,
                         String.Format(
-                            "set {0} = '{1}'",
+                            "set {0} = {1}",
                             VarName,
-                            GETRequest(k)
+                            Apostrophe(GETRequest(k), VarType)
                         )
                     )
 
@@ -190,6 +197,22 @@ Public MustInherit Class iFeed : Inherits EndPoint
             End If
         Next
         Return sqlString
+    End Function
+
+#End Region
+
+#Region "Private Functions"
+
+    Function Apostrophe(Value As String, vType As String)
+        Select Case vType
+            Case "char", "varchar", "text", "nchar", "nvarchar", "ntext"
+                Return String.Format("'{0}'", Value)
+
+            Case Else
+                Return String.Format("{0}", Value)
+
+        End Select
+
     End Function
 
 #End Region
