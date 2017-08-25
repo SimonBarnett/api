@@ -1,0 +1,42 @@
+# api
+XML API
+
+Extensible XML API using MEF modules.
+
+C:\Windows\System32\inetsrv\config\applicationHost.config
+
+https://www.iis.net/downloads/microsoft/url-rewrite
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP 5 
+	[environment]
+	 , [displayTime]
+	  ,[BubbleID]
+      
+      ,[method]
+      ,[endpoint]
+	  ,[severity]
+	  ,[fKey]
+      --,[logXml]
+      --,[logText]
+
+
+  FROM [system].[dbo].[apiLog]
+  where 0=0
+      and [logYear] = 2017
+      and [logMonth] = 8
+      and [logDay]= 24
+	order by logTime DESC
+
+	select top 1 [logText] 
+	from system.dbo.apiLog 
+	order by logDate desc, logTime desc
+
+USE [system]
+declare @request xml;
+set @request = '<post></post>';
+
+SELECT [logText] 
+FROM system.dbo.apiLog 
+where BubbleID = '98873feb-ee8e-49ed-bdaa-827d2fa15552'
+
