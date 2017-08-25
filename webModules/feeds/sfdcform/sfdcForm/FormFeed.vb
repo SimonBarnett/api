@@ -20,10 +20,13 @@ Public Class sfdcform : Inherits iFeed : Implements xmlFeed
 
 #End Region
 
-    Overrides ReadOnly Property Query As String
-        Get
-            Return My.Resources.query
-        End Get
-    End Property
+    Overrides Function Query(Optional view As String = Nothing) As String
+        Select Case view
+            Case Else
+                Return My.Resources.Query
+
+        End Select
+
+    End Function
 
 End Class

@@ -10,7 +10,9 @@ Imports PriPROC6.Interface.Message
 Imports System.Text
 Imports System.Xml
 
-Public Class httpHandler : Implements IHttpHandler
+Public Class httpHandler
+    Inherits EndPoint
+    Implements IHttpHandler
 
 #Region "Imported MEF Enumerables"
 
@@ -38,12 +40,6 @@ Public Class httpHandler : Implements IHttpHandler
         End Get
     End Property
 
-    ReadOnly Property Service As String
-        Get
-            Return WebConfigurationManager.AppSettings("service")
-        End Get
-    End Property
-
     ReadOnly Property LogServer As String
         Get
             Try
@@ -68,12 +64,6 @@ Public Class httpHandler : Implements IHttpHandler
         End Get
     End Property
 
-    ReadOnly Property EndpointRequest As String
-        Get
-            Return Split(HttpContext.Current.Request.RawUrl.Split("?")(0), "/").Last
-        End Get
-    End Property
-
     ReadOnly Property isEndPoint(Endpoint As EndPoint) As Boolean
         Get
             Return _
@@ -88,18 +78,11 @@ Public Class httpHandler : Implements IHttpHandler
         End Get
     End Property
 
-    Private _msgFactory As msgFactory = Nothing
-    ReadOnly Property msgFactory As msgFactory
-        Get
-            Return _msgFactory
-        End Get
-    End Property
-
 #End Region
 
 #Region "Implements IHttpHandler"
 
-    Public Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
+    Public Overloads Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
 
         Using log As New oMsgLog(
             context.Request.Url.Host.ToString,
@@ -109,6 +92,9 @@ Public Class httpHandler : Implements IHttpHandler
         )
 
             Try
+                MyBase.log = log
+                newSQLLog()
+
                 Dim catalog = New AggregateCatalog()
                 catalog.Catalogs.Add(BinCatalog)
 
@@ -125,10 +111,10 @@ Public Class httpHandler : Implements IHttpHandler
                     End If
                 Next
 
-                _msgFactory = New msgFactory(mefmsg)
+                msgfactory = New msgFactory(mefmsg)
 
                 log.LogData.AppendFormat(
-                    "Received {0} {1} from {2}.",
+                    "Received {0} /{1} from {2}.",
                     context.Request.HttpMethod.ToUpper,
                     EndpointRequest,
                     context.Request.UserHostAddress
@@ -136,32 +122,109 @@ Public Class httpHandler : Implements IHttpHandler
 
                 Dim f As Boolean = False
                 Select Case context.Request.HttpMethod.ToLower
+                    Case "patch"
+                        Dim env As List(Of String) = Environments()
+                        env.Add("system")
+                        If env.Contains(context.Request("environment")) Then
+                            If Not IsNothing(feeds) Then
+                                For Each feed As Lazy(Of xmlFeed, xmlFeedProps) In feeds
+                                    With feed
+                                        .Value.SetMeta(.Metadata)
+                                        If isEndPoint(TryCast(.Value, EndPoint)) Then
+                                            With TryCast(.Value, EndPoint)
+                                                .BubbleID = BubbleID
+                                                .dbConnection = dbConnection
+                                            End With
+                                            .Value.Install(context, log, msgfactory)
+                                            f = True
+                                            Exit For
+                                        End If
+                                    End With
+                                Next
+                            End If
+                        End If
+
+                    Case "view"
+                        f = True
+                        With context.Response
+                            .Clear()
+                            .ContentType = "text/xml"
+                            .ContentEncoding = Encoding.UTF8
+                            Dim objX As New XmlTextWriter(context.Response.OutputStream, Nothing)
+                            With objX
+                                .WriteStartDocument()
+                                .WriteStartElement("api")
+
+                                For Each env As String In Environments()
+                                    .WriteStartElement("env")
+                                    .WriteAttributeString("name", env)
+                                    .WriteEndElement()
+                                Next
+
+                                If Not IsNothing(feeds) Then
+                                    For Each feed As Lazy(Of xmlFeed, xmlFeedProps) In feeds
+                                        .WriteStartElement("feed")
+                                        .WriteAttributeString("name", String.Format("{0}.ashx", feed.Metadata.EndPoint))
+                                        .WriteEndElement()
+                                    Next
+                                End If
+
+                                If Not IsNothing(handlers) Then
+                                    For Each hdlr As Lazy(Of xmlHandler, xmlHandlerProps) In handlers
+                                        .WriteStartElement("handler")
+                                        .WriteAttributeString("name", String.Format("{0}.ashx", hdlr.Metadata.EndPoint))
+                                        .WriteEndElement()
+                                    Next
+                                End If
+
+                                .WriteEndElement() 'End Settings 
+                                .WriteEndDocument()
+                                .Flush()
+                                .Close()
+
+                            End With
+                        End With
+
                     Case "get"
-                        If Not IsNothing(feeds) Then
-                            For Each feed As Lazy(Of xmlFeed, xmlFeedProps) In feeds
-                                With feed
-                                    .Value.SetMeta(.Metadata)
-                                    If isEndPoint(TryCast(.Value, EndPoint)) Then
-                                        .Value.ProcessRequest(context, log, msgFactory)
-                                        f = True
-                                        Exit For
-                                    End If
-                                End With
-                            Next
+                        Dim env As List(Of String) = Environments()
+                        env.Add("system")
+                        If env.Contains(context.Request("environment")) Then
+                            If Not IsNothing(feeds) Then
+                                For Each feed As Lazy(Of xmlFeed, xmlFeedProps) In feeds
+                                    With feed
+                                        .Value.SetMeta(.Metadata)
+                                        If isEndPoint(TryCast(.Value, EndPoint)) Then
+                                            With TryCast(.Value, EndPoint)
+                                                .BubbleID = BubbleID
+                                                .dbConnection = dbConnection
+                                            End With
+                                            .Value.ProcessRequest(context, log, msgfactory)
+                                            f = True
+                                            Exit For
+                                        End If
+                                    End With
+                                Next
+                            End If
                         End If
 
                     Case "post"
-                        If Not IsNothing(handlers) Then
-                            For Each hdlr As Lazy(Of xmlHandler, xmlHandlerProps) In handlers
-                                With hdlr
-                                    .Value.SetMeta(.Metadata)
-                                    If isEndPoint(TryCast(hdlr.Value, EndPoint)) Then
-                                        .Value.ProcessRequest(context, log, msgFactory)
-                                        f = True
-                                        Exit For
-                                    End If
-                                End With
-                            Next
+                        If Environments.Contains(context.Request("environment")) Then
+                            If Not IsNothing(handlers) Then
+                                For Each hdlr As Lazy(Of xmlHandler, xmlHandlerProps) In handlers
+                                    With hdlr
+                                        .Value.SetMeta(.Metadata)
+                                        If isEndPoint(TryCast(.Value, EndPoint)) Then
+                                            With TryCast(.Value, EndPoint)
+                                                .BubbleID = BubbleID
+                                                .dbConnection = dbConnection
+                                            End With
+                                            .Value.ProcessRequest(context, log, msgfactory)
+                                            f = True
+                                            Exit For
+                                        End If
+                                    End With
+                                Next
+                            End If
                         End If
 
                 End Select
@@ -185,32 +248,33 @@ Public Class httpHandler : Implements IHttpHandler
                     .Clear()
                     .ContentType = "text/xml"
                     .ContentEncoding = Encoding.UTF8
+
                     Dim objX As New XmlTextWriter(context.Response.OutputStream, Nothing)
                     With objX
                         .WriteStartDocument()
                         .WriteStartElement("response")
                         .WriteAttributeString("status", CStr(500))
                         .WriteAttributeString("message", ex.Message)
+                        .WriteAttributeString("stacktr", ex.StackTrace)
                         .WriteEndElement() 'End Settings 
                         .WriteEndDocument()
                         .Flush()
                         .Close()
                     End With
+
                 End With
 
             Finally
-                If Len(LogServer) > 0 Then
-                    Try
-                        Using cli As New iClient(LogServer, logPort, 1)
-                            cli.Send(msgFactory.EncodeRequest("log", log))
-                        End Using
+                setLog(log)
 
-                    Catch : End Try
-                End If
             End Try
 
         End Using
 
+    End Sub
+
+    Public Overrides Sub ProcessRequest(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory)
+        Throw New NotImplementedException()
     End Sub
 
     Public ReadOnly Property IsReusable() As Boolean Implements IHttpHandler.IsReusable

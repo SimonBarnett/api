@@ -59,5 +59,104 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to USE [system]
+        '''IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N&apos;[dbo].[apiLog]&apos;) AND type in (N&apos;U&apos;))
+        '''BEGIN
+        '''	CREATE TABLE [dbo].[apiLog](
+        '''		[BubbleID] [varchar](64) NOT NULL,
+        '''		[logDate] [date] NOT NULL CONSTRAINT [DF_apiLog_logDate]  DEFAULT (getdate()),
+        '''		[logTime] [time] NOT NULL CONSTRAINT [DF_apiLog_logTime]  DEFAULT (getdate()),
+        '''		[environment] [varchar](50) NOT NULL,
+        '''		[method] [nchar](10) NOT NULL,
+        '''		[endpoint] [varchar](250) NOT NULL,
+        '''		[severity] [int] NULL,
+        '''		[logXml [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property log() As String
+            Get
+                Return ResourceManager.GetString("log", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to USE [system]
+        '''declare @BubbleID varchar(64)
+        '''select top 1 
+        '''	@BubbleID = BubbleID 
+        '''from [dbo].[apiLog]
+        '''WHERE BubbleID = &apos;{0}&apos;
+        '''order by logDate Desc, logTime Desc;
+        '''update [dbo].[apiLog] 
+        '''set [fKey] = &apos;{1}&apos;
+        '''where BubbleID = @BubbleID.
+        '''</summary>
+        Friend ReadOnly Property setfKey() As String
+            Get
+                Return ResourceManager.GetString("setfKey", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to USE [system]
+        '''declare @BubbleID varchar(64)
+        '''select top 1 
+        '''	@BubbleID = BubbleID 
+        '''from [dbo].[apiLog]
+        '''WHERE BubbleID = &apos;{0}&apos;
+        '''order by logDate Desc, logTime Desc;
+        '''update [dbo].[apiLog] 
+        '''set [fKey] = @BubbleID
+        '''where [fKey] = &apos;{1}&apos;
+        '''update [dbo].[apiLog] 
+        '''set [fKey] = &apos;{1}&apos;
+        '''where BubbleID = @BubbleID.
+        '''</summary>
+        Friend ReadOnly Property setfKeyReplace() As String
+            Get
+                Return ResourceManager.GetString("setfKeyReplace", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to USE [system]
+        '''declare @BubbleID varchar(64)
+        '''select top 1 
+        '''	@BubbleID = BubbleID 
+        '''from [dbo].[apiLog]
+        '''WHERE BubbleID = &apos;{0}&apos;
+        '''order by logDate Desc, logTime Desc
+        '''
+        '''update [dbo].[apiLog] set 
+        '''[severity] = &apos;{2}&apos;,
+        '''[logText] = &apos;{1}&apos;
+        '''where BubbleID = @BubbleID.
+        '''</summary>
+        Friend ReadOnly Property setLog() As String
+            Get
+                Return ResourceManager.GetString("setLog", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to USE [system]
+        '''declare @BubbleID varchar(64)
+        '''select top 1 
+        '''	@BubbleID = BubbleID 
+        '''from [dbo].[apiLog]
+        '''WHERE BubbleID = &apos;{0}&apos;
+        '''order by logDate Desc, logTime Desc;
+        '''declare @request xml;
+        '''set @request = &apos;{1}&apos;;
+        '''update [dbo].[apiLog] set 
+        '''[logXml] = @request
+        '''where BubbleID = @BubbleID.
+        '''</summary>
+        Friend ReadOnly Property setXML() As String
+            Get
+                Return ResourceManager.GetString("setXML", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

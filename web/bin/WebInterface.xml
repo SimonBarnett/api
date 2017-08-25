@@ -22,5 +22,126 @@ WebInterface
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.log">
+<summary>
+  Looks up a localized string similar to USE [system]
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N&apos;[dbo].[apiLog]&apos;) AND type in (N&apos;U&apos;))
+BEGIN
+	CREATE TABLE [dbo].[apiLog](
+		[BubbleID] [varchar](64) NOT NULL,
+		[logDate] [date] NOT NULL CONSTRAINT [DF_apiLog_logDate]  DEFAULT (getdate()),
+		[logTime] [time] NOT NULL CONSTRAINT [DF_apiLog_logTime]  DEFAULT (getdate()),
+		[environment] [varchar](50) NOT NULL,
+		[method] [nchar](10) NOT NULL,
+		[endpoint] [varchar](250) NOT NULL,
+		[severity] [int] NULL,
+		[logXml [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.setfKey">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc;
+update [dbo].[apiLog] 
+set [fKey] = &apos;{1}&apos;
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.setfKeyReplace">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc;
+update [dbo].[apiLog] 
+set [fKey] = @BubbleID
+where [fKey] = &apos;{1}&apos;
+update [dbo].[apiLog] 
+set [fKey] = &apos;{1}&apos;
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.setLog">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc
+
+update [dbo].[apiLog] set 
+[severity] = &apos;{2}&apos;,
+[logText] = &apos;{1}&apos;
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.setXML">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc;
+declare @request xml;
+set @request = &apos;{1}&apos;;
+update [dbo].[apiLog] set 
+[logXml] = @request
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.EndPoint.BubbleID">
+ <summary>
+ The transaction ID. Returned as a host header to client
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PriPROC6.Interface.Web.EndPoint.requestEnv">
+ <summary>
+ The requested Priority environment
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:PriPROC6.Interface.Web.EndPoint.setKey(System.String,System.Boolean)">
+ <summary>
+ Set a key value of the saved XML.
+ Duplicates keys throw an error
+ unless optional Overwrite is True.
+ </summary>
+ <param name="x">The key value from the foreign system</param>
+ <param name="Overwrite">Associate this log with saved key</param>
+</member>
+<member name="M:PriPROC6.Interface.Web.EndPoint.Environments">
+ <summary>
+ A List of valid Priority Companies
+ </summary>
+ <returns>List(Of String)</returns>
+</member>
+<member name="M:PriPROC6.Interface.Web.iFeed.Query(System.String)">
+ <summary>
+ The sql query that will be executed.
+ Parameters are caputured from the GET request.
+ </summary>
+ <param name="View">Optional view GET parameter</param>
+ <returns></returns>
+</member>
+<member name="M:PriPROC6.Interface.Web.iFeed.InstallQuery">
+ <summary>
+ Any SQL CREATEs for functions used by the query.
+ PATCHing the MEF feed executes the CREATE in the selected environment.
+ </summary>
+ <returns></returns>
+</member>
 </members>
 </doc>

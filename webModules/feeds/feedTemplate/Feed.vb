@@ -17,12 +17,24 @@ Public Class FeedName : Inherits iFeed : Implements xmlFeed
     Shadows Sub SetMeta(ByRef Metadata As xmlFeedProps) Implements xmlFeed.SetMeta
         MyBase.SetMeta(Metadata)
     End Sub
-    Overrides ReadOnly Property Query As String
-        Get
-            Return My.Resources.Query
-        End Get
-    End Property
+
+    Shadows Sub Install(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlFeed.Install
+        MyBase.Install(context, log, msgFactory)
+    End Sub
 
 #End Region
+
+    Overrides Function Query(Optional view As String = Nothing) As String
+        Select Case view
+            Case Else
+                Return My.Resources.Query
+
+        End Select
+
+    End Function
+
+    Public Overrides Function InstallQuery() As String
+        Return My.Resources.install
+    End Function
 
 End Class

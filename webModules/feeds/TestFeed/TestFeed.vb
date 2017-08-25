@@ -18,12 +18,24 @@ Public Class TestFeed : Inherits iFeed : Implements xmlFeed
         MyBase.SetMeta(Metadata)
     End Sub
 
+    Shadows Sub Install(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlFeed.Install
+        MyBase.Install(context, log, msgFactory)
+    End Sub
+
 #End Region
 
-    Overrides ReadOnly Property Query As String
-        Get
-            Return My.Resources.query
-        End Get
-    End Property
+    Overrides Function Query(Optional view As String = Nothing) As String
+        Select Case view
+            Case Else
+                Return My.Resources.query
+
+        End Select
+
+    End Function
+
+    Overrides Function InstallQuery() As String
+        Return My.Resources.install
+
+    End Function
 
 End Class

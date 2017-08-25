@@ -61,10 +61,21 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property install() As String
+            Get
+                Return ResourceManager.GetString("install", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to declare @user varchar(32) --mandatory
         '''set @user =&apos;Simon&apos;
         '''
-        '''select @user as &quot;@name&quot; 
+        '''select 
+        '''	&apos;hello&apos; as &quot;@test&quot;,
+        '''	@user as &quot;@name&quot; 
         '''for XML PATH(&apos;result&apos;), type.
         '''</summary>
         Friend ReadOnly Property query() As String

@@ -21,6 +21,16 @@ Public MustInherit Class EndPoint : Implements IDisposable
         End Set
     End Property
 
+    ReadOnly Property EndpointRequest As String
+        Get
+            Try
+                Return Split(HttpContext.Current.Request.RawUrl.Split("?")(0), "/").Last
+            Catch ex As Exception
+                Return ""
+            End Try
+        End Get
+    End Property
+
     Private _log As oMsgLog
     Public Property log As oMsgLog
         Get
@@ -41,6 +51,34 @@ Public MustInherit Class EndPoint : Implements IDisposable
         End Set
     End Property
 
+    Private _BubbleID As String = System.Guid.NewGuid.ToString
+    ''' <summary>
+    ''' The transaction ID. Returned as a host header to client
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property BubbleID As String
+        Get
+            Return _BubbleID
+        End Get
+        Set(value As String)
+            _BubbleID = value
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' The requested Priority environment
+    ''' </summary>
+    ''' <returns></returns>
+    Public ReadOnly Property requestEnv As String
+        Get
+            Try
+                Return HttpContext.Current.Request("environment")
+            Catch ex As Exception
+                Return ""
+            End Try
+        End Get
+    End Property
+
 #End Region
 
 #Region "DB Connection"
@@ -58,37 +96,135 @@ Public MustInherit Class EndPoint : Implements IDisposable
         End Get
     End Property
 
-    Private ReadOnly Property dbConnection As SqlConnection
+    Private _cn As SqlConnection = Nothing
+    Public Property dbConnection As SqlConnection
         Get
-            log.LogData.AppendFormat("Opening datasource: {0}", PriorityDBConnection).AppendLine()
-            Dim _connection As New SqlConnection()
-            With _connection
-                .ConnectionString = PriorityDBConnection
-                .Open()
-            End With
-            Return _connection
+            Try
+                If _cn Is Nothing Then Throw New Exception("Is nothing")
+                If _cn.State = ConnectionState.Closed Then Throw New Exception("Not connected")
+
+            Catch ex As Exception
+                log.LogData.AppendFormat("Opening datasource: {0}", PriorityDBConnection).AppendLine()
+                _cn = New SqlConnection()
+                With _cn
+                    .ConnectionString = PriorityDBConnection
+                    .Open()
+                End With
+
+            End Try
+            Return _cn
+
         End Get
+        Set(value As SqlConnection)
+            _cn = value
+        End Set
     End Property
 
 #End Region
 
-#Region "Log SQL commands"
+#Region "Execute SQL"
 
-    Public Function LogStartSQL(Method As String, ByRef Statement As String) As Date
+#Region "Logging"
+
+    Friend Function LogStartSQL(Method As String, ByRef Statement As String) As Date
         log.LogData.AppendFormat("Executing {0}:", Method.ToUpper).AppendLine.Append(Statement).AppendLine().AppendLine()
         Return Now
     End Function
 
-    Public Sub LogEndSQL(starttime As Date)
+    Friend Sub LogEndSQL(starttime As Date)
         log.LogData.AppendFormat(
             "Completed in {0} seconds.",
             (Now - starttime).ToString.Replace("00:", "")
         ).AppendLine()
     End Sub
 
-#End Region
+    Friend Sub newSQLLog()
+        With HttpContext.Current
+            .Response.AddHeader("BubbleID", BubbleID)
+            Dim command As New SqlCommand(
+            String.Format(
+                My.Resources.log,
+                BubbleID,
+                requestEnv,
+                .Request.HttpMethod,
+                EndpointRequest
+            ), dbConnection)
+            command.ExecuteNonQuery()
+        End With
+    End Sub
 
-#Region "Execute SQL"
+    Friend Sub setLog(log As oMsgLog)
+        Dim logstr As String = log.LogData.ToString _
+        .Replace(Chr(10), "") _
+        .Replace(vbTab, "   ") _
+        .Replace("'", "'+char(39)+'")
+        Dim command As New SqlCommand(
+            String.Format(
+                My.Resources.setLog,
+                BubbleID,
+                logstr,
+                CInt(log.EntryType)
+            ), dbConnection)
+        command.ExecuteNonQuery()
+    End Sub
+
+    Friend Sub setXml(x As String)
+        Dim command As New SqlCommand(
+            String.Format(
+                My.Resources.setXML,
+                BubbleID,
+                x
+            ), dbConnection)
+        command.ExecuteNonQuery()
+    End Sub
+
+    ''' <summary>
+    ''' Set a key value of the saved XML.
+    ''' Duplicates keys throw an error
+    ''' unless optional Overwrite is True.
+    ''' </summary>
+    ''' <param name="x">The key value from the foreign system</param>
+    ''' <param name="Overwrite">Associate this log with saved key</param>
+    Public Sub setKey(x As String, Optional Overwrite As Boolean = False)
+        Try
+            Dim command As New SqlCommand(
+                String.Format(
+                    My.Resources.setfKey,
+                    BubbleID,
+                    x
+                ), dbConnection)
+            command.ExecuteNonQuery()
+
+        Catch ex As SqlException
+            If ex.Number = 2601 Then
+                If Not Overwrite Then _
+                    Throw New Exception(
+                        String.Format(
+                            "Duplicate foreign key: '{0}'",
+                            x
+                        )
+                    )
+
+                Dim command As New SqlCommand(
+                String.Format(
+                    My.Resources.setfKeyReplace,
+                    BubbleID,
+                    x
+                ), dbConnection)
+                command.ExecuteNonQuery()
+
+            Else
+                Throw (ex)
+            End If
+
+        Catch ex As Exception
+            Throw (ex)
+
+        End Try
+
+    End Sub
+
+#End Region
 
 #Region "Stringbuilder support"
 
@@ -110,12 +246,31 @@ Public MustInherit Class EndPoint : Implements IDisposable
 
 #End Region
 
+    ''' <summary>
+    ''' A List of valid Priority Companies
+    ''' </summary>
+    ''' <returns>List(Of String)</returns>
+    Public Function Environments() As List(Of String)
+        Dim ret As New List(Of String)
+        Dim command As New SqlCommand(
+            "use system; " &
+            "select DNAME from ENVIRONMENT where DNAME <> ''",
+            dbConnection
+        )
+        Dim rs As SqlDataReader = command.ExecuteReader
+        While rs.Read
+            ret.Add(rs("DNAME"))
+        End While
+        rs.Close()
+        Return ret
+    End Function
+
     Public Function ExecuteReader(ByRef sqlString As String) As SqlClient.SqlDataReader
         Dim ret As SqlDataReader
         Dim command As New SqlCommand(sqlString.ToString, dbConnection)
-        Dim start As Date = LogStartSQL("Reader", sqlString)
-        ret = command.ExecuteReader
-        LogEndSQL(start)
+            Dim start As Date = LogStartSQL("Reader", sqlString)
+            ret = command.ExecuteReader
+            LogEndSQL(start)
         Return ret
     End Function
 
@@ -156,7 +311,7 @@ Public MustInherit Class EndPoint : Implements IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not disposedValue Then
             If disposing Then
-
+                _cn.Close()
             End If
 
             ' TODO: free unmanaged resources (unmanaged objects) and override Finalize() below.

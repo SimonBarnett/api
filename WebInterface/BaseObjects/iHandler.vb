@@ -2,8 +2,10 @@
 Imports System.Text
 Imports System.Web
 Imports System.Xml
+Imports System.Net
 Imports PriPROC6.Interface.Message
 Imports PriPROC6.svcMessage
+Imports System.Web.Configuration
 
 Public MustInherit Class iHandler : Inherits EndPoint
 
@@ -15,6 +17,7 @@ Public MustInherit Class iHandler : Inherits EndPoint
             Name = .EndPoint
             _HandlerStyle = .HandlerStyle
         End With
+
     End Sub
 
 #End Region
@@ -43,12 +46,7 @@ Public MustInherit Class iHandler : Inherits EndPoint
         MyBase.log = log
         MyBase.msgfactory = msgFactory
 
-        Dim StatusCode As Integer = 200
-        Dim StatusMessage As String = "Ok"
-
-        Dim _SecondSave As String = Nothing
         Dim reader As StreamReader = Nothing
-
         With context
             Try
                 ' Read from stream                
@@ -57,6 +55,8 @@ Public MustInherit Class iHandler : Inherits EndPoint
                 While Not String.Compare(x.Substring(0, 1), "<") = 0
                     x = x.Substring(1)
                 End While
+
+                setXml(x)
 
                 ' Add XSDs
                 XmlStylesheet(_thisRequest.Schemas)
@@ -68,9 +68,7 @@ Public MustInherit Class iHandler : Inherits EndPoint
                 _thisRequest.LoadXml(x)
 
             Catch ex As Exception
-                log.setException(ex)
-                StatusCode = 500
-                StatusMessage = ex.Message
+                Throw New Exception(String.Format("Bad request: {0}", ex.Message))
 
             Finally
                 With reader
@@ -84,12 +82,11 @@ Public MustInherit Class iHandler : Inherits EndPoint
                 .Clear()
                 .ContentType = "text/xml"
                 .ContentEncoding = Encoding.UTF8
+
                 Dim objX As New XmlTextWriter(context.Response.OutputStream, Nothing)
                 With objX
                     .WriteStartDocument()
                     .WriteStartElement("response")
-                    .WriteAttributeString("status", CStr(StatusCode))
-                    .WriteAttributeString("message", StatusMessage)
 
                     Select Case _HandlerStyle
                         Case eHandlerStyle.stream
@@ -114,7 +111,6 @@ Public MustInherit Class iHandler : Inherits EndPoint
             End With
 
         End With
-
 
     End Sub
 

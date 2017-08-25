@@ -22,5 +22,10 @@ Testhandler
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:PriPROC6.Web.Handlers.TestHandler.My.Resources.Resources.install">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
 </members>
 </doc>

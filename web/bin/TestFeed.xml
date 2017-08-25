@@ -22,12 +22,19 @@ TestFeed
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:PriPROC6.Web.Feed.TestFeed.My.Resources.Resources.install">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
 <member name="P:PriPROC6.Web.Feed.TestFeed.My.Resources.Resources.query">
 <summary>
   Looks up a localized string similar to declare @user varchar(32) --mandatory
 set @user =&apos;Simon&apos;
 
-select @user as &quot;@name&quot; 
+select 
+	&apos;hello&apos; as &quot;@test&quot;,
+	@user as &quot;@name&quot; 
 for XML PATH(&apos;result&apos;), type.
 </summary>
 </member>

@@ -35,7 +35,7 @@
     <OptionExplicit>On</OptionExplicit>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionCompare>Binary</OptionCompare>
+    <OptionCompare>Text</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
@@ -52,9 +52,6 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web" />
-    <Reference Include="WebInterface">
-      <HintPath>..\..\..\web\bin\WebInterface.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -113,6 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Query.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\install.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\webinterface\Interface.Web.vbproj">
+      <Project>{be4b8869-d8dd-46db-b680-7807e1162642}</Project>
+      <Name>Interface.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

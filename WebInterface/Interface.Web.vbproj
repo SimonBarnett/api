@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\web\bin\</OutputPath>
+    <OutputPath>C:\inetpub\api\Bin\</OutputPath>
     <DocumentationFile>WebInterface.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -51,6 +51,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\web\Bin\MessageInterface.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PriSock, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\web\Bin\PriSock.dll</HintPath>
@@ -64,6 +68,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -89,6 +94,11 @@
     <Compile Include="Interfaces\FeedInterface.vb" />
     <Compile Include="BaseObjects\iFeed.vb" />
     <Compile Include="BaseObjects\iHandler.vb" />
+    <Compile Include="Loading\apiError.vb" />
+    <Compile Include="Loading\Consts.vb" />
+    <Compile Include="Loading\Data.vb" />
+    <Compile Include="Loading\priForm.vb" />
+    <Compile Include="Loading\priRow.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -123,6 +133,22 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setLog.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setXML.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setfKey.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setfKeyReplace.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

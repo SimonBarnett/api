@@ -19,11 +19,37 @@ Public MustInherit Class iFeed : Inherits EndPoint
 
 #Region "Overridable stubs"
 
-    Public MustOverride ReadOnly Property Query As String
+    ''' <summary>
+    ''' The sql query that will be executed.
+    ''' Parameters are caputured from the GET request.
+    ''' </summary>
+    ''' <param name="View">Optional view GET parameter</param>
+    ''' <returns></returns>
+    Public MustOverride Function Query(Optional View As String = Nothing) As String
+
+    ''' <summary>
+    ''' Any SQL CREATEs for functions used by the query.
+    ''' PATCHing the MEF feed executes the CREATE in the selected environment.
+    ''' </summary>
+    ''' <returns></returns>
+    Public MustOverride Function InstallQuery() As String
 
 #End Region
 
+
 #Region "Process Request"
+
+    Public Sub Install(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory)
+        MyBase.log = log
+        MyBase.msgfactory = msgFactory
+
+        With log.LogData
+            .AppendFormat("Installing SQL from {0}.", Name).AppendLine()
+            ExecuteNonQuery(String.Format("use {0}; {1}", requestEnv, InstallQuery))
+
+        End With
+
+    End Sub
 
     Public Overrides Sub ProcessRequest(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory)
 
@@ -44,7 +70,7 @@ Public MustInherit Class iFeed : Inherits EndPoint
                         ExecuteXmlReader(
                             String.Format(
                                 "use {0}; {1}",
-                                context.GetSection("appSettings")("Environment"),
+                                context.Request("environment"),
                                 Statement
                             )
                         ),
@@ -74,8 +100,14 @@ Public MustInherit Class iFeed : Inherits EndPoint
 
     Private Function Statement()
 
+        Dim sqlString As String
         Dim GETRequest As New GetParams()
-        Dim sqlString As String = Query
+
+        If GETRequest.Keys.Contains("view") Then
+            sqlString = Query(GETRequest("view").ToLower)
+        Else
+            sqlString = Query()
+        End If
 
         ' --- 20/04/2013 - si
         ' --- Impliment SQL parameters from the request string.
