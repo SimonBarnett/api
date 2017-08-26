@@ -1,7 +1,7 @@
 <h1>Installation</h1>
-Install the <a href="https://www.iis.net/downloads/microsoft/url-rewrite">MS URL re-write module</a>.
+Install the <a href="https://www.iis.net/downloads/microsoft/url-rewrite">MS URL re-write module</a>.<br><br>
 
-Update and add VIEW/PATCH REST actions to .ashx handlers in:
+Add VIEW/PATCH REST actions to .ashx handlers in:
 
 ```C:\Windows\System32\inetsrv\config\applicationHost.config```
 
