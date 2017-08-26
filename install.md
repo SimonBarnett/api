@@ -1,10 +1,4 @@
-<h1>IIS API</h1>
-
-<img src="https://github.com/SimonBarnett/api/blob/master/templates.png">
-
-Extensible XML API using MEF modules.
-
-<h2>Installation</h2>
+<h1>Installation</h1>
 Install re-write module:
 https://www.iis.net/downloads/microsoft/url-rewrite
 
