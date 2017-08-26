@@ -24,8 +24,5 @@ Handler end-points use the <a href="https://github.com/SimonBarnett/apiLoad">nod
 <li>The loading is processed by the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a>.
 <li>Read more about <a href="https://github.com/SimonBarnett/api/blob/master/handlers.md">handlers</a>.
 
-<h2>Postman Example</h2>
-<a href="https://app.getpostman.com/run-collection/4594feb31a8a5b1aa40c"><img src="https://run.pstmn.io/button.svg"></a>
-
 <h2>Installation</h2>
 A seperate help file for installation of the IIS application is available <a href="https://github.com/SimonBarnett/api/blob/master/install.md">here</a>.
