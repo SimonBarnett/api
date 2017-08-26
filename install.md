@@ -2,9 +2,11 @@
 Install the <a href="https://www.iis.net/downloads/microsoft/url-rewrite">MS URL re-write module</a>.
 
 Update and add VIEW/PATCH REST actions to .ashx handlers in:
+
 ```C:\Windows\System32\inetsrv\config\applicationHost.config```
 
 Copy the <a href="https://github.com/SimonBarnett/api/tree/master/web">web folder</a> to 
+
 ```c:\inetpub\api```
 
 <h2>In MSSQL:</h2>
@@ -18,4 +20,5 @@ Copy the <a href="https://github.com/SimonBarnett/api/tree/master/web">web folde
 
 <h2>To install .net templates</h2>
 <li>Copy endpoint templates from <a href="https://localhost/api/templates">the template folder</a> to:
+
 ```\My Documents\Visual Studio Version\Templates\ItemTemplates\Language\```
