@@ -16,7 +16,7 @@ Copy the <a href="https://github.com/SimonBarnett/api/tree/master/web">web folde
 <li>Add an application to the Priority website with c:\inetpub\api as the root directory.
 <li>Set the identity of the API application pool to NetworkService
 <li>Set the server\instance of the Priority database connection in iis "connection strings"
-<li>Optionaly - set the host/port of the NodeJS service in "application settings"
+<li>Optionaly - set the host/port of the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> in "application settings"
 
 <h2>To install .net templates</h2>
 <li>Copy endpoint templates from <a href="https://localhost/api/templates">the template folder</a> to:
