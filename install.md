@@ -18,6 +18,9 @@ Copy the <a href="https://github.com/SimonBarnett/api/tree/master/web">web folde
 <li>Set the server\instance of the Priority database connection in iis "connection strings"
 <li>Optionaly - set the host/port of the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> in "application settings"
 
+<h2>Setting up the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a></h2>
+Handlers require the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> to post oData to Priority. This should be installed seperately.
+
 <h2>To install .net templates</h2>
 <li>Copy endpoint templates from <a href="https://localhost/api/templates">the template folder</a> to:
 
