@@ -1,11 +1,14 @@
 <h1>IIS API Endpoint - Handlers</h1>
 
-<h2>Note: Handler endpoints require the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> to load data into Priority. </h2>
+<b>Note:</b> Handler endpoints require the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> to load data into Priority. </h2>
 
 <h2>Summary.</h2>
-This <a href="https://github.com/SimonBarnett/apiLoad/blob/master/clientExample/Main.vb">example</a> demonstrates usage of the <a href="https://github.com/SimonBarnett/apiLoad/tree/master/apiLoad">.Net API Load Library</a>.
+<li>Handler end-points receive data from third party applications. 
+<li>Handlers can contain XSD files to validate received data
+<li>A handler builds a loading with the <a href="https://github.com/SimonBarnett/apiLoad/tree/master/apiLoad">.Net API Load Library</a>
+<li>The loading is processed by the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a>.
 
-<h2><a href="https://github.com/SimonBarnett/api/blob/master/webModules/handlers/Testhandler/TestHandler.vb">Example</a></h2>
+This <a href="https://github.com/SimonBarnett/api/blob/master/webModules/handlers/Testhandler/TestHandler.vb">example</a> uses the <a href="https://github.com/SimonBarnett/apiLoad/tree/master/apiLoad">.Net API Load Library</a> to load data into Priority.
 
 <h2>Endpoint installation</h2>
 <li>Build the endpoint .dll file
