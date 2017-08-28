@@ -5,6 +5,8 @@
 <h2>Summary.</h2>
 This <a href="https://github.com/SimonBarnett/apiLoad/blob/master/clientExample/Main.vb">example</a> demonstrates usage of the <a href="https://github.com/SimonBarnett/apiLoad/tree/master/apiLoad">.Net API Load Library</a>.
 
+<h2><a href="https://github.com/SimonBarnett/api/blob/master/webModules/handlers/Testhandler/TestHandler.vb">Example</a></h2>
+
 <h2>Enpoint installation</h2>
 <li>Build the endpoint .dll file
 <l1>Copy the .dll to the /bin folder of the API application
