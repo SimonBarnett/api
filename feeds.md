@@ -7,7 +7,7 @@
 
 <h2><a href="https://github.com/SimonBarnett/api/blob/master/webModules/feeds/TestFeed/TestFeed.vb">Example</a></h2>
 
-<h2>Enpoint installation</h2>
+<h2>Endpoint installation</h2>
 <li>Build the endpoint .dll file
 <l1>Copy the .dll to the /bin folder of the API application
 <li>PATCHing a feed endpoint will run the install in the selected company
