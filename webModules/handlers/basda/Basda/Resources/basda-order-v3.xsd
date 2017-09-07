@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" elementFormDefault="qualified" targetNamespace="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Order">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OrderHead" type="tns:OrderHeadStructure" />
+        <xs:element minOccurs="0" maxOccurs="1" name="OrderReferences" type="tns:OrderReferencesStructure" />
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" name="Extensions" type="tns:ExtensionsStructure" />          
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="1" name="OrderDate" type="tns:OrderDateStructure" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Supplier" type="tns:SupplierStructure" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Originator" type="tns:BuyerStructure" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Buyer" type="tns:BuyerStructure" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Delivery" type="tns:DeliveryStructure" />
+        <xs:element minOccurs="0" maxOccurs="1" name="InvoiceTo" type="tns:InvoiceToStructure" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderLine" type="tns:OrderLineStructure" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="PercentDiscount" type="tns:PercentDiscountStructure" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="AmountDiscount" type="tns:AmountDiscountStructure" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecialInstructions" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Narrative" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Settlement" type="tns:SettlementStructure" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxSubTotal" type="tns:TaxSubTotalStructure" />
+        <xs:element minOccurs="0" maxOccurs="1" name="OrderTotal" type="tns:OrderTotalStructure" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OrderHeadStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Schema" type="tns:SchemaStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Stylesheet" type="tns:StylesheetStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Parameters" type="tns:ParametersStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OriginatingSoftware" type="tns:OriginatingSoftwareStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TestFlag" type="tns:TestFlagStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderType" type="tns:OrderTypeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Function" type="tns:FunctionStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderCurrency" type="tns:CurrencyStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InvoiceCurrency" type="tns:CurrencyStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Checksum" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SchemaStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StylesheetStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="StylesheetOwner" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StylesheetName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StylesheetType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LogoURL" type="xs:anyURI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParametersStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Language" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DecimalSeparator" type="tns:DecimalSeparatorType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Precision" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DecimalSeparatorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="," />
+      <xs:enumeration value="." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="OriginatingSoftwareStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SoftwareManufacturer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SoftwareProduct" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SoftwareVersion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SoftwareSystemID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TestFlagStructure" mixed="true">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Test" type="tns:TestStructure" />
+    </xs:sequence>
+    <xs:attribute name="TestReference" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="TestStructure">
+    <xs:attribute name="ExpectedReply" type="xs:string" />
+    <xs:attribute name="Mode" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="OrderTypeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="FunctionStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="CurrencyStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Currency" type="tns:CurrencyElementStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AlternateCurrency" type="tns:AlternateCurrencyStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Rate" type="tns:RateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CurrencyElementStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AlternateCurrencyStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="RateType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="CalculationType" use="required">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="D" />
+              <xs:enumeration value="M" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="OrderReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ContractOrderReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CostCentre" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TermsConditions" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersOrderNumber" type="tns:BuyersOrderNumberStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Department" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GeneralLedgerCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectCode" type="tns:ProjectCodeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectAnalysisCode" type="tns:ProjectAnalysisCodeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SuppliersOrderReference" type="tns:SuppliersOrderReferenceStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CrossReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResponseTo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BatchNumber" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GloballyUniqueID" type="tns:GUIDStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuyersOrderNumberStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ProjectCodeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ProjectAnalysisCodeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SuppliersOrderReferenceStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="GUIDStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ExtensionsStructure">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderDateStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SupplierStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SupplierReferences" type="tns:SupplierReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SupplierReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForSupplier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegisteredIn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddressStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressLine" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Street" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="City" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PostCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="tns:CountryStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CountryStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ContactStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Department" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Section" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UserID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InternalAddress" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DDI" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Switchboard" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Fax" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Telex" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Mobile" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuyerStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyerReferences" type="tns:BuyerReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuyerReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SuppliersCodeForBuyer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForBuyer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Organisation" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegisteredIn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliveryStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliverTo" type="tns:DeliverToStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliverFrom" type="tns:DeliverFromStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Carrier" type="tns:CarrierStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Quantity" type="tns:QuantityStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EarliestAcceptableDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LatestAcceptableDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PreferredDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ActualDeliveryDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExpectedDeliveryDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecialInstructions" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeliveryInformation" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliveryTerms" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliverToStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliverToReferences" type="tns:DeliverToReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Location" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliverToReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForDelivery" type="tns:BuyersCodeForDeliveryStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForLocation" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegisteredIn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuyersCodeForDeliveryStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DeliverFromStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DeliverFromReferences" type="tns:DeliverFromReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Location" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeliverFromReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SuppliersCodeForLocation" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForLocation" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegisteredIn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CarrierStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CarrierReferences" type="tns:CarrierReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CarrierReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForCarrier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegisteredIn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QuantityStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Packsize" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Amount" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="UOMCode" type="xs:string" />
+    <xs:attribute name="UOMDescription" type="xs:string" />
+    <xs:attribute name="UOMCodelist" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="InvoiceToStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="InvoiceToReferences" type="tns:InvoiceToReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Narrative" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvoiceToReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RegisteredIn" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SuppliersCodeForInvoiceTo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersCodeForInvoiceTo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderLineStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="LineNumber" type="tns:LineNumberStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrderLineReferences" type="tns:OrderLineReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Originator" type="tns:BuyerStructure" />
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="Extensions" type="tns:ExtensionsStructure" />        
+      </xs:choice>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" type="tns:ProductStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Quantity" type="tns:QuantityStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Price" type="tns:PriceStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PercentDiscount" type="tns:PercentDiscountStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AmountDiscount" type="tns:AmountDiscountStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LineTax" type="tns:LineTaxStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NetLineTotal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GrossLineTotal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LineTotal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Delivery" type="tns:DeliveryStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderLineInformation" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedDescription" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Narrative" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="Action" type="tns:ActionAttrType" />
+    <xs:attribute name="TypeCode" type="xs:string" />
+    <xs:attribute name="TypeDescription" type="xs:string" />
+    <xs:attribute name="TypeCodelist" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="LineNumberStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="OrderLineReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ContractOrderReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CostCentre" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GeneralLedgerCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersOrderLineReference" type="tns:BuyersOrderLineReferenceStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectCode" type="tns:ProjectCodeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProjectAnalysisCode" type="tns:ProjectAnalysisCodeStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BuyersOrderLineReferenceStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ProductStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SuppliersProductCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BuyersProductCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GTIN" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OtherProductCode" type="tns:OtherProductCodeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TradedUnitCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ConsumerUnitCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Properties" type="tns:PropertiesStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CommodityClass" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OtherProductCodeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Qualifier" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PropertiesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Quantity" type="tns:QuantityStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Length" type="tns:LengthStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Width" type="tns:WidthStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Depth" type="tns:DepthStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Weight" type="tns:WeightStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Volume" type="tns:VolumeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Height" type="tns:HeightStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Size" type="tns:SizeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Color" type="tns:ColorStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Other" type="tns:OtherUOMStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LengthStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="WidthStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DepthStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="WeightStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="VolumeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="HeightStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SizeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ColorStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="OtherUOMStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UOMCode" type="xs:string" />
+        <xs:attribute name="UOMDescription" type="xs:string" />
+        <xs:attribute name="UOMCodelist" type="xs:string" />
+        <xs:attribute name="Description" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PriceStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Units" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SpecialPriceDescription" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="UOMCode" type="xs:string" />
+    <xs:attribute name="UOMDescription" type="xs:string" />
+    <xs:attribute name="UOMCodelist" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="PercentDiscountStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="QualifyingTerms" type="tns:QualifyingTermsStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="tns:TypeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Percentage" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QualifyingTermsStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PayByDate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DaysFromInvoice" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DaysFromMonthEnd" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DaysFromDelivery" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="Code" type="xs:string" />
+    <xs:attribute name="Codelist" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="TypeStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AmountDiscountStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="QualifyingTerms" type="tns:QualifyingTermsStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="tns:TypeStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Amount" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LineTaxStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MixedRateIndicator" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxRate" type="tns:TaxRateStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxValue" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxRef" type="tns:TaxRefStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TaxRateStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="TaxRefStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+        <xs:attribute name="Preserve" type="xs:boolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="ActionAttrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Change" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Original" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SettlementStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SettlementTerms" type="tns:SettlementTermsStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SettlementMethod" type="tns:SettlementMethodStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankDetails" type="tns:BankDetailsStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CardDetails" type="tns:CardDetailsStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SettlementBy" type="tns:SettlementByStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettlementDiscount" type="tns:SettlementDiscountStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SettlementTermsStructure">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="PaidDate" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="DaysFromInvoice" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="PayByDate" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="DaysFromMonthEnd" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="DaysFromDelivery" type="xs:string" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="Code" type="xs:string" />
+    <xs:attribute name="Codelist" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="SettlementMethodStructure">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="Codelist" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="BankDetailsStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BankCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankReference" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BankName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccountName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CardDetailsStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Issuer" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="1" maxOccurs="1" name="IssueDate" type="xs:date" />
+        <xs:element minOccurs="0" maxOccurs="1" name="ValidFrom" type="xs:string" />
+      </xs:choice>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="0" maxOccurs="1" name="ExpiresEnd" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="ExpiryDate" type="xs:date" />
+      </xs:choice>
+      <xs:element minOccurs="0" maxOccurs="1" name="IssueNumber" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CardNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthorisationCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SecurityCode" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CRI" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="CardType" type="tns:CardTypeAttrType" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="CardTypeAttrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Charge" />
+      <xs:enumeration value="Credit" />
+      <xs:enumeration value="Debit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SettlementByStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SettlementByReferences" type="tns:SettlementByReferencesStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Party" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressStructure" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="tns:ContactStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SettlementByReferencesStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GLN" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DUNS" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SettlementDiscountStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PercentDiscount" type="tns:PercentDiscountStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmountDiscount" type="tns:AmountDiscountStructure" />
+    </xs:sequence>
+    <xs:attribute name="Code" type="xs:string" />
+    <xs:attribute name="Codelist" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="TaxSubTotalStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxRate" type="tns:TaxRateStructure" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NumberOfLinesAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TotalValueAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SettlementDiscountAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxableValueAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NetPaymentAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GrossPaymentAtRate" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxCurrency" type="tns:CurrencyStructure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderTotalStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GoodsValue" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FreightCharges" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MiscCharges" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TaxTotal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GrossValue" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmountPaid" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AmountOutstanding" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

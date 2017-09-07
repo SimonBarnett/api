@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("PriPROC6.Web.Handlers.TestHandler.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("PriPROC6.Web.Handlers.Basda.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -58,6 +58,21 @@ Namespace My.Resources
             Set
                 resourceCulture = value
             End Set
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        '''&lt;xs:schema xmlns:tns=&quot;urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        '''  &lt;xs:element name=&quot;Order&quot;&gt;
+        '''    &lt;xs:complexType&gt;
+        '''      &lt;xs:sequence&gt;
+        '''        &lt;xs:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot; name=&quot;OrderHead&quot; type=&quot;tns:OrderHeadStructure&quot; /&gt;
+        '''        &lt;xs:element minOccurs=&quot;0&quot; maxOccurs=&quot;1&quot; name=&quot;OrderReferences&quot; type=&quot;tns:Or [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property basda_order_v3() As String
+            Get
+                Return ResourceManager.GetString("basda_order_v3", resourceCulture)
+            End Get
         End Property
     End Module
 End Namespace

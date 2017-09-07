@@ -9,6 +9,14 @@ Imports System.Web.Configuration
 
 Public MustInherit Class iHandler : Inherits EndPoint
 
+#Region "Handler properties"
+    Public forms As New List(Of String)
+    Public thisport As Integer = 8080
+    Public rows As New Data
+    Public rowid As Integer = 0
+
+#End Region
+
 #Region "Metadata"
 
     Private _HandlerStyle As eHandlerStyle
@@ -59,22 +67,30 @@ Public MustInherit Class iHandler : Inherits EndPoint
                 setXml(x)
 
                 ' Add XSDs
-                XmlStylesheet(_thisRequest.Schemas)
-                If _thisRequest.Schemas.Schemas.Count > 0 Then
+                Dim ret As New XmlReaderSettings()
+                XmlStylesheet(ret.Schemas)
+                If ret.Schemas.Count > 0 Then
+                    ret.ValidationType = ValidationType.Schema
                     log.LogData.AppendFormat("{0} XSDs loaded.", _thisRequest.Schemas.Schemas.Count).AppendLine()
+                    reader.BaseStream.Position = 0
+
+                    ' And load
+                    _thisRequest.Load(XmlReader.Create(reader, ret))
+
+                Else
+                    ' And load
+                    _thisRequest.LoadXml(x)
+
                 End If
 
-                ' And load
-                _thisRequest.LoadXml(x)
 
             Catch ex As Exception
-                Throw New Exception(String.Format("Bad request: {0}", ex.Message))
-
-            Finally
                 With reader
                     .Close()
                     .Dispose()
                 End With
+                Throw New Exception(String.Format("Bad request: {0}", ex.Message))
+
 
             End Try
 
@@ -110,6 +126,11 @@ Public MustInherit Class iHandler : Inherits EndPoint
 
             End With
 
+        End With
+
+        With reader
+            .Close()
+            .Dispose()
         End With
 
     End Sub

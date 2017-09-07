@@ -4,6 +4,7 @@ Imports System.Web
 Imports PriPROC6.Interface.Web
 Imports PriPROC6.svcMessage
 Imports PriPROC6.Interface.Message
+Imports System.IO
 
 <Export(GetType(xmlHandler))>
 <ExportMetadata("EndPoint", "handlerName")>
@@ -26,6 +27,10 @@ Public Class Handler : Inherits iHandler : Implements xmlHandler
         With Schemas
 
         End With
+    End Sub
+
+    Public Overrides Sub StreamHandler(ByRef w As XmlTextWriter, ByRef Request As StreamReader)
+        MyBase.StreamHandler(w, Request)
     End Sub
 
     Public Overrides Sub XMLHandler(ByRef w As XmlTextWriter, ByRef Request As XmlDocument)

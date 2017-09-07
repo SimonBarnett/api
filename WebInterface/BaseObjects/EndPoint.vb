@@ -173,7 +173,7 @@ Public MustInherit Class EndPoint : Implements IDisposable
             String.Format(
                 My.Resources.setXML,
                 BubbleID,
-                x
+                x.Replace("'", "'+char(39)+'")
             ), dbConnection)
         command.ExecuteNonQuery()
     End Sub

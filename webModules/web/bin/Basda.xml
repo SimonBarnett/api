@@ -1,0 +1,2105 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Basda
+</name>
+</assembly>
+<members>
+<member name="T:PriPROC6.Web.Handlers.Basda.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.AddressStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AddressStructure.AddressLine">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AddressStructure.Street">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AddressStructure.City">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AddressStructure.State">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AddressStructure.PostCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AddressStructure.Country">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CountryStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CountryStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CountryStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CountryStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.AlternateCurrencyStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AlternateCurrencyStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AlternateCurrencyStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AlternateCurrencyStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.AmountDiscountStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AmountDiscountStructure.QualifyingTerms">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AmountDiscountStructure.Type">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.AmountDiscountStructure.Amount">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure.PayByDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure.DaysFromInvoice">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure.DaysFromMonthEnd">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure.DaysFromDelivery">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QualifyingTermsStructure.Codelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.TypeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TypeStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TypeStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TypeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.BankDetailsStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.BankCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.BankReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.BankName">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.AccountName">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BankDetailsStructure.Contact">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ContactStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Name">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Department">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Section">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.UserID">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.InternalAddress">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.DDI">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Switchboard">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Fax">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Telex">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Email">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ContactStructure.Mobile">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.BuyerStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerStructure.BuyerReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.SuppliersCodeForBuyer">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.BuyersCodeForBuyer">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.TaxNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.Organisation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.RegistrationNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyerReferencesStructure.RegisteredIn">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.BuyersCodeForDeliveryStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersCodeForDeliveryStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersCodeForDeliveryStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersCodeForDeliveryStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.BuyersOrderLineReferenceStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersOrderLineReferenceStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersOrderLineReferenceStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersOrderLineReferenceStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.BuyersOrderNumberStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersOrderNumberStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersOrderNumberStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.BuyersOrderNumberStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CardDetailsStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.Issuer">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.Item">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.Item1">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.IssueNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.IssueNumberSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.CardNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.AuthorisationCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.SecurityCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.SecurityCodeSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.CRI">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CardDetailsStructure.CardType">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CardTypeAttrType">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.CardTypeAttrType.Charge">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.CardTypeAttrType.Credit">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.CardTypeAttrType.Debit">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CarrierStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierStructure.CarrierReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure.BuyersCodeForCarrier">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure.TaxNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure.RegistrationNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CarrierReferencesStructure.RegisteredIn">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ColorStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ColorStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ColorStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ColorStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ColorStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CountryOfDestinationStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CountryOfDestinationStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CountryOfDestinationStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CountryOfDestinationStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CurrencyElementStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CurrencyElementStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CurrencyElementStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CurrencyElementStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DecimalSeparatorType">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.DecimalSeparatorType.Item">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.DecimalSeparatorType.Item1">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DeliverFromStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromStructure.DeliverFromReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromStructure.Location">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.SuppliersCodeForLocation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.BuyersCodeForLocation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.TaxNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.RegistrationNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverFromReferencesStructure.RegisteredIn">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DeliverToStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToStructure.DeliverToReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToStructure.Location">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.BuyersCodeForDelivery">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.BuyersCodeForLocation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.TaxNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.RegistrationNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliverToReferencesStructure.RegisteredIn">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DeliveryStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.DeliverTo">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.DeliverFrom">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.Carrier">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.Quantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.EarliestAcceptableDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.LatestAcceptableDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.PreferredDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.ActualDeliveryDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.ExpectedDeliveryDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.SpecialInstructions">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.DeliveryInformation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.DeliveryTerms">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DeliveryStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.QuantityStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QuantityStructure.Packsize">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QuantityStructure.Amount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QuantityStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QuantityStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.QuantityStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.DepthStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DepthStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DepthStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DepthStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.DepthStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ExtensionsStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ExtensionsStructure.Any">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.FunctionStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.FunctionStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.FunctionStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.FunctionStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.FunctionStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.FunctionStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.GUIDStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.GUIDStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.GUIDStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.GUIDStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.HeightStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.HeightStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.HeightStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.HeightStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.HeightStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.IntrastatStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.IntrastatStructure.CommodityCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.IntrastatStructure.CommodityDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.IntrastatStructure.NatureOfTransaction">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.IntrastatStructure.SupplementaryUnits">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.IntrastatStructure.CountryOfDestination">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.IntrastatStructure.ModeOfTransport">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.NatureOfTransactionStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.NatureOfTransactionStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.NatureOfTransactionStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.NatureOfTransactionStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ModeOfTransportStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ModeOfTransportStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ModeOfTransportStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ModeOfTransportStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.CurrencyStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CurrencyStructure.Currency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CurrencyStructure.AlternateCurrency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.CurrencyStructure.Rate">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.RateType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.RateType.CalculationType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.RateType.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.RateTypeCalculationType">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.RateTypeCalculationType.D">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.RateTypeCalculationType.M">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.Schema">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.Stylesheet">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.Parameters">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.OriginatingSoftware">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.TestFlag">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.InvoiceType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.Function">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.InvoiceCurrency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.Intrastat">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceHeadStructure.Checksum">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SchemaStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SchemaStructure.Version">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.StylesheetStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.StylesheetStructure.StylesheetOwner">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.StylesheetStructure.StylesheetName">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.StylesheetStructure.Version">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.StylesheetStructure.StylesheetType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.StylesheetStructure.LogoURL">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ParametersStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ParametersStructure.Language">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ParametersStructure.DecimalSeparator">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ParametersStructure.Precision">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OriginatingSoftwareStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OriginatingSoftwareStructure.SoftwareManufacturer">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OriginatingSoftwareStructure.SoftwareProduct">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OriginatingSoftwareStructure.SoftwareVersion">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OriginatingSoftwareStructure.SoftwareSystemID">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.TestFlagStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TestFlagStructure.Test">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TestFlagStructure.Text">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TestFlagStructure.TestReference">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.TestStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TestStructure.ExpectedReply">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TestStructure.Mode">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceTypeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTypeStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTypeStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTypeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.LineNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.InvoiceLineReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Item">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Product">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Quantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Price">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.PercentDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.AmountDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.LineTax">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.NetLineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.GrossLineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.LineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Delivery">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.InvoiceLineInformation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.ExtendedDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Narrative">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.LotSerial">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Intrastat">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.Action">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.ActionSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.TypeCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.TypeDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineStructure.TypeCodelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.LineNumberStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineNumberStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineNumberStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineNumberStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.ContractOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.CostCentre">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.GeneralLedgerCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.ProjectCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.ProjectAnalysisCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.BuyersOrderNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.OriginalOrderDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.OrderLineNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.OrderFunction">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.OrderGloballyUniqueID">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.BuyersOrderLineReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.DeliveryNoteNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceLineReferencesStructure.DeliveryNoteLineNumber">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ProjectCodeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProjectCodeStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProjectCodeStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProjectCodeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ProjectAnalysisCodeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProjectAnalysisCodeStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProjectAnalysisCodeStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProjectAnalysisCodeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ProductStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.SuppliersProductCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.BuyersProductCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.GTIN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.OtherProductCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.TradedUnitCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.ConsumerUnitCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.Description">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.Properties">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.ProductStructure.CommodityClass">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OtherProductCodeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherProductCodeStructure.Qualifier">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherProductCodeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.PropertiesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Quantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Length">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Width">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Depth">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Weight">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Volume">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Height">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Size">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Color">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PropertiesStructure.Other">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.LengthStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LengthStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LengthStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LengthStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LengthStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.WidthStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WidthStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WidthStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WidthStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WidthStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.WeightStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WeightStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WeightStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WeightStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.WeightStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.VolumeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.VolumeStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.VolumeStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.VolumeStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.VolumeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SizeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SizeStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SizeStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SizeStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SizeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OtherUOMStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherUOMStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherUOMStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherUOMStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherUOMStructure.Description">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OtherUOMStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.PriceStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PriceStructure.Units">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PriceStructure.UnitPrice">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PriceStructure.SpecialPriceDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PriceStructure.UOMCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PriceStructure.UOMDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PriceStructure.UOMCodelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.PercentDiscountStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PercentDiscountStructure.QualifyingTerms">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PercentDiscountStructure.Type">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.PercentDiscountStructure.Percentage">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.LineTaxStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineTaxStructure.MixedRateIndicator">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineTaxStructure.TaxRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineTaxStructure.TaxValue">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LineTaxStructure.TaxRef">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.TaxRateStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRateStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRateStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRateStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.TaxRefStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRefStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRefStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRefStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRefStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxRefStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.LotSerialStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialStructure.LotSerialType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialStructure.LotSerialNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialStructure.Quantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialStructure.LotSerialDates">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.LotSerialTypeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialTypeStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialTypeStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialTypeStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialTypeStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialTypeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure.BestBeforeDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure.DeliveryDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure.DespatchDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure.OnSaleByDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure.SellByDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.LotSerialDatesStructure.ShelfLifeDate">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ActionAttrType">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ActionAttrType.Add">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ActionAttrType.Change">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ActionAttrType.Delete">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ActionAttrType.Original">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.ContractOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.CostCentre">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.BuyersOrderNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.Department">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.GeneralLedgerCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.ProjectCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.ProjectAnalysisCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.TermsConditions">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.SuppliersInvoiceNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.DeliveryNoteNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.SuppliersOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.ResponseTo">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.BatchNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceReferencesStructure.GloballyUniqueID">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SuppliersInvoiceNumberStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SuppliersInvoiceNumberStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SuppliersInvoiceNumberStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SuppliersInvoiceNumberStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SuppliersOrderReferenceStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SuppliersOrderReferenceStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SuppliersOrderReferenceStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SuppliersOrderReferenceStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceToStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToStructure.InvoiceToReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.TaxNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.RegistrationNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.RegisteredIn">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.SuppliersCodeForInvoiceTo">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceToReferencesStructure.BuyersCodeForInvoiceTo">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.NumberOfLines">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.NumberOfTaxRates">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.LineValueTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.FreightCharges">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.MiscCharges">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.SettlementDiscountTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.TaxableTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.TaxTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.NetPaymentTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.GrossPaymentTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.AmountPaid">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.AmountPaidSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.AmountOutstanding">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.InvoiceTotalStructure.AmountOutstandingSpecified">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderDateStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderDateStructure.Preserve">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderDateStructure.PreserveSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderDateStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderHeadStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.Schema">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.Stylesheet">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.Parameters">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.OriginatingSoftware">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.TestFlag">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.OrderType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.Function">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.OrderCurrency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.InvoiceCurrency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderHeadStructure.Checksum">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderTypeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTypeStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTypeStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTypeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderLineStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.LineNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.OrderLineReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Originator">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Item">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Product">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Quantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Price">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.PercentDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.AmountDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.LineTax">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.NetLineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.GrossLineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.LineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Delivery">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.OrderLineInformation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.ExtendedDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Narrative">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.Action">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.ActionSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.TypeCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.TypeDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineStructure.TypeCodelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure.ContractOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure.CostCentre">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure.GeneralLedgerCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure.BuyersOrderLineReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure.ProjectCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderLineReferencesStructure.ProjectAnalysisCode">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.ContractOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.CostCentre">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.TermsConditions">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.BuyersOrderNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.Department">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.GeneralLedgerCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.ProjectCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.ProjectAnalysisCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.SuppliersOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.CrossReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.ResponseTo">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.BatchNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderReferencesStructure.GloballyUniqueID">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.Schema">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.Stylesheet">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.Parameters">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.OriginatingSoftware">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.TestFlag">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.OrderResponseType">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.Function">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.OrderCurrency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.InvoiceCurrency">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseHeadStructure.Checksum">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderResponseTypeStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTypeStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTypeStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTypeStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.LineNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.OriginalLineNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Status">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.OrderResponseLineReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Originator">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Item">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Product">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Quantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.OriginalQuantity">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Price">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.OriginalPrice">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.PercentDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.AmountDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.LineTax">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.NetLineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.GrossLineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.LineTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Delivery">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.OrderLineInformation">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.ExtendedDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Narrative">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.Action">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.ActionSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.TypeCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.TypeDescription">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineStructure.TypeCodelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure.ContractOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure.CostCentre">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure.GeneralLedgerCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure.BuyersOrderLineReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure.ProjectCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseLineReferencesStructure.ProjectAnalysisCode">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.OrderResponseNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.ContractOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.CostCentre">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.TermsConditions">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.BuyersOrderNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.Department">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.GeneralLedgerCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.ProjectCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.ProjectAnalysisCode">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.SuppliersOrderReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.CrossReference">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.ResponseTo">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.BatchNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseReferencesStructure.GloballyUniqueID">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.GoodsValue">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.GoodsValueSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.FreightCharges">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.MiscCharges">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.TaxTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.GrossValue">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderResponseTotalStructure.GrossValueSpecified">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.OrderTotalStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.GoodsValue">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.GoodsValueSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.FreightCharges">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.MiscCharges">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.TaxTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.GrossValue">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.GrossValueSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.AmountPaid">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.AmountPaidSpecified">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.AmountOutstanding">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.OrderTotalStructure.AmountOutstandingSpecified">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SettlementStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.SettlementTerms">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.SettlementMethod">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.BankDetails">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.CardDetails">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.SettlementBy">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementStructure.SettlementDiscount">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SettlementTermsStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementTermsStructure.Item">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementTermsStructure.ItemElementName">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementTermsStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementTermsStructure.Codelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.ItemChoiceType">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ItemChoiceType.DaysFromDelivery">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ItemChoiceType.DaysFromInvoice">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ItemChoiceType.DaysFromMonthEnd">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ItemChoiceType.Description">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ItemChoiceType.PaidDate">
+<remarks/>
+</member>
+<member name="F:PriPROC6.Web.Handlers.Basda.ItemChoiceType.PayByDate">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SettlementMethodStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementMethodStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementMethodStructure.Codelist">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementMethodStructure.Value">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SettlementByStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementByStructure.SettlementByReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementByStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementByStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementByStructure.Contact">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SettlementByReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementByReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementByReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SettlementDiscountStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementDiscountStructure.PercentDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementDiscountStructure.AmountDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementDiscountStructure.Code">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SettlementDiscountStructure.Codelist">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SupplierStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierStructure.SupplierReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierStructure.Party">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierStructure.Address">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierStructure.Contact">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierStructure.Narrative">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure.BuyersCodeForSupplier">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure.TaxNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure.GLN">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure.DUNS">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure.RegistrationNumber">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.SupplierReferencesStructure.RegisteredIn">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.TaxRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.NumberOfLinesAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.TotalValueAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.SettlementDiscountAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.TaxableValueAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.TaxAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.NetPaymentAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.GrossPaymentAtRate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.TaxSubTotalStructure.TaxCurrency">
+<remarks/>
+</member>
+<member name="T:PriPROC6.Web.Handlers.Basda.Order">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.OrderHead">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.OrderReferences">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Item">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.OrderDate">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Supplier">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Originator">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Buyer">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Delivery">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.InvoiceTo">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.OrderLine">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.PercentDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.AmountDiscount">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.SpecialInstructions">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Narrative">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.Settlement">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.TaxSubTotal">
+<remarks/>
+</member>
+<member name="P:PriPROC6.Web.Handlers.Basda.Order.OrderTotal">
+<remarks/>
+</member>
+</members>
+</doc>
