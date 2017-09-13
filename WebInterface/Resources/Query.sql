@@ -5,8 +5,8 @@ declare @yy int
 declare @environment varchar(24) --mandatory
 set @environment = 'demo'
 
-declare @endpoint varchar(255) --mandatory
-set @endpoint = 'basda-order-v3.ashx'
+declare @page varchar(255) --mandatory
+set @page = 'basda-order-v3.ashx'
 
 set @dd = datepart(day, getdate())
 set @mm = datepart(MONTH, getdate())
@@ -31,7 +31,7 @@ select '', (
 		  and [logMonth] = @mm
 		  and [logDay]= @dd
 		  and [environment] = @environment
-		  and [endpoint] = @endpoint 
+		  and [endpoint] = @page 
 
 		order by logTime DESC
 		for XML PATH('item'), type)
