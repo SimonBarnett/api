@@ -11,21 +11,24 @@ Public Class priRow : Inherits List(Of priRow) : Implements IDisposable
     Sub New(ByRef Form As priForm, ParamArray RowData() As String)
 
         _Form = Form
-        rowid += 1
-        _id = rowid
+        With _Form
+            .myParent.rowid += 1
+            _id = .myParent.rowid
 
-        If Not (_Form.Columns.Count - 1 = UBound(RowData)) Then
-            Throw New Exception(
+            If Not (.Columns.Count - 1 = UBound(RowData)) Then
+                Throw New Exception(
                 String.Format(
                     "Parameter mismatch adding row to form {0}.",
-                    _Form.Name
+                    .Name
                 )
             )
-        Else
-            For i As Integer = 0 To UBound(RowData)
-                _Rowdata.Add(_Form.Columns(i), RowData(i))
-            Next
-        End If
+            Else
+                For i As Integer = 0 To UBound(RowData)
+                    _Rowdata.Add(.Columns(i), RowData(i))
+                Next
+            End If
+
+        End With
 
     End Sub
 

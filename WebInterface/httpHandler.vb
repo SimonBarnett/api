@@ -68,12 +68,9 @@ Public Class httpHandler
         Get
             Return _
             String.Compare(
-                String.Format(
-                    "{0}.ashx",
-                    Endpoint.Name
-                ),
-                   EndpointRequest,
-                    True
+                Endpoint.Name,
+                HttpContext.Current.Request("endpoint"),
+                True
             ) = 0
         End Get
     End Property
@@ -116,7 +113,7 @@ Public Class httpHandler
                 log.LogData.AppendFormat(
                     "Received {0} /{1} from {2}.",
                     context.Request.HttpMethod.ToUpper,
-                    EndpointRequest,
+                    context.Request("endpoint"),
                     context.Request.UserHostAddress
                 ).AppendLine()
 
@@ -145,6 +142,7 @@ Public Class httpHandler
                         End If
 
                     Case "view"
+
                         f = True
                         With context.Response
                             .Clear()
@@ -163,9 +161,16 @@ Public Class httpHandler
 
                                 If Not IsNothing(feeds) Then
                                     For Each feed As Lazy(Of xmlFeed, xmlFeedProps) In feeds
-                                        .WriteStartElement("feed")
-                                        .WriteAttributeString("name", String.Format("{0}.ashx", feed.Metadata.EndPoint))
-                                        .WriteEndElement()
+                                        Select Case feed.Metadata.EndPoint.ToLower
+                                            Case "log", "logdetail"
+
+                                            Case Else
+                                                .WriteStartElement("feed")
+                                                .WriteAttributeString("name", String.Format("{0}.ashx", feed.Metadata.EndPoint))
+                                                .WriteEndElement()
+
+                                        End Select
+
                                     Next
                                 End If
 
@@ -179,6 +184,7 @@ Public Class httpHandler
 
                                 .WriteEndElement() 'End Settings 
                                 .WriteEndDocument()
+
                                 .Flush()
                                 .Close()
 
@@ -193,14 +199,32 @@ Public Class httpHandler
                                 For Each feed As Lazy(Of xmlFeed, xmlFeedProps) In feeds
                                     With feed
                                         .Value.SetMeta(.Metadata)
-                                        If isEndPoint(TryCast(.Value, EndPoint)) Then
-                                            With TryCast(.Value, EndPoint)
-                                                .BubbleID = BubbleID
-                                                .dbConnection = dbConnection
-                                            End With
-                                            .Value.ProcessRequest(context, log, msgfactory)
-                                            f = True
-                                            Exit For
+                                        If Not HttpContext.Current.Request.Url.ToString.Contains("?log&") Then
+                                            If isEndPoint(TryCast(.Value, EndPoint)) Then
+                                                With TryCast(.Value, EndPoint)
+                                                    .BubbleID = BubbleID
+                                                    .dbConnection = dbConnection
+                                                End With
+                                                .Value.ProcessRequest(context, log, msgfactory)
+                                                f = True
+                                                Exit For
+                                            End If
+
+                                        Else
+                                            If String.Compare(
+                                                TryCast(.Value, EndPoint).Name,
+                                                "log",
+                                                True) _
+                                            = 0 Then
+                                                With TryCast(.Value, EndPoint)
+                                                    .BubbleID = BubbleID
+                                                    .dbConnection = dbConnection
+                                                End With
+                                                .Value.ProcessRequest(context, log, msgfactory)
+                                                f = True
+                                                Exit For
+                                            End If
+
                                         End If
                                     End With
                                 Next
@@ -235,7 +259,7 @@ Public Class httpHandler
                         New Exception(
                             String.Format(
                                 "Requested EndPoint not found: {0}.",
-                                EndpointRequest
+                                context.Request("endpoint")
                             )
                         )
                     )

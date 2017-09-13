@@ -1,5 +1,4 @@
 ﻿' C:\Program Files\Microsoft SDKs\Windows\v6.0A\Bin\x64>xsd M:\xsd\basda\ORDER-V3.xsd /c /l:vb /o:M:\xsd\basda
-
 Imports System.ComponentModel.Composition
 Imports System.Xml
 Imports System.Web
@@ -55,6 +54,7 @@ Public Class TestHandler : Inherits iHandler : Implements xmlHandler
                 .Buyer.BuyerReferences.SuppliersCodeForBuyer,
                 .OrderReferences.BuyersOrderNumber.Value
             )
+
             For Each i In .OrderLine
                 With i
                     ORDERITEMS.AddRow(
@@ -64,12 +64,16 @@ Public Class TestHandler : Inherits iHandler : Implements xmlHandler
                     )
                 End With
             Next
+
         End With
 
         Dim ex As Exception = Nothing
         ORDERS.Post(ex)
         If Not TypeOf ex Is apiResponse Then Throw (ex)
+
+        w.WriteStartElement("response")
         TryCast(ex, apiResponse).toXML(w)
+        w.WriteEndElement()
 
     End Sub
 

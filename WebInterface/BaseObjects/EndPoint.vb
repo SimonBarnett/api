@@ -21,16 +21,6 @@ Public MustInherit Class EndPoint : Implements IDisposable
         End Set
     End Property
 
-    ReadOnly Property EndpointRequest As String
-        Get
-            Try
-                Return Split(HttpContext.Current.Request.RawUrl.Split("?")(0), "/").Last
-            Catch ex As Exception
-                Return ""
-            End Try
-        End Get
-    End Property
-
     Private _log As oMsgLog
     Public Property log As oMsgLog
         Get
@@ -147,7 +137,7 @@ Public MustInherit Class EndPoint : Implements IDisposable
                 BubbleID,
                 requestEnv,
                 .Request.HttpMethod,
-                EndpointRequest
+                .Request("endpoint")
             ), dbConnection)
             command.ExecuteNonQuery()
         End With

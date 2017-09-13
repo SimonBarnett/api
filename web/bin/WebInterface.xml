@@ -22,6 +22,11 @@ WebInterface
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.Install">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
 <member name="P:PriPROC6.Interface.Web.My.Resources.Resources.log">
 <summary>
   Looks up a localized string similar to USE [system]
@@ -36,6 +41,85 @@ BEGIN
 		[endpoint] [varchar](250) NOT NULL,
 		[severity] [int] NULL,
 		[logXml [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.logDetail">
+<summary>
+  Looks up a localized string similar to declare @dd int --mandatory
+declare @mm int --mandatory
+declare @yy int --mandatory
+
+set @dd = datepart(day, getdate()) -1
+set @mm = datepart(MONTH, getdate())
+set @yy = datepart(year, getdate())
+
+declare @environment varchar(24) --mandatory
+set @environment = &apos;demo&apos;
+
+declare @BubbleID varchar(64) --mandatory
+set @BubbleID = &apos;e4592754-7f54-421c-8437-f54c00780a04&apos;
+
+select
+	1 as Tag,
+	Null as Parent,		
+	@BubbleID as &quot;Log!1!BubbleID&quot;,  
+	[severity] as &quot;Log!1!Severity&quot;,
+	environment as &quot;Log!1 [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.logXML">
+<summary>
+  Looks up a localized string similar to declare @dd int --mandatory
+declare @mm int --mandatory
+declare @yy int --mandatory
+
+set @dd = datepart(day, getdate()) -1
+set @mm = datepart(MONTH, getdate())
+set @yy = datepart(year, getdate())
+
+declare @environment varchar(24) --mandatory
+set @environment = &apos;demo&apos;
+
+declare @BubbleID varchar(64) --mandatory
+set @BubbleID = &apos;e4592754-7f54-421c-8437-f54c00780a04&apos;
+
+select
+	logXml
+	 
+FROM [system].[dbo].[apiLog]
+where 0=0
+	and [logYear] = @yy
+	and [logMonth] = @mm
+	and [logDay]= @dd
+	and [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.Web.My.Resources.Resources.Query">
+<summary>
+  Looks up a localized string similar to declare @dd int
+declare @mm int
+declare @yy int
+
+declare @environment varchar(24) --mandatory
+set @environment = &apos;demo&apos;
+
+declare @endpoint varchar(255) --mandatory
+set @endpoint = &apos;basda-order-v3.ashx&apos;
+
+set @dd = datepart(day, getdate())
+set @mm = datepart(MONTH, getdate())
+set @yy = datepart(year, getdate())
+
+select &apos;&apos;, (
+	SELECT 
+		[displayTime] as &quot;@Time&quot;
+		  ,[BubbleID] as &quot;@BubbleID&quot;
+      
+		  --,[method]
+		  --,[endpoint]
+		  ,[severity] as &quot;@Severity&quot;
+		  ,[fKey] as &quot;@fkey&quot;
+		 [rest of string was truncated]&quot;;.
 </summary>
 </member>
 <member name="P:PriPROC6.Interface.Web.My.Resources.Resources.setfKey">

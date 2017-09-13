@@ -70,7 +70,10 @@ Public Class TestHandler : Inherits iHandler : Implements xmlHandler
             Dim ex As Exception = Nothing
             cust.Post(ex)
             If Not TypeOf ex Is apiResponse Then Throw (ex)
+
+            w.WriteStartElement("response")
             TryCast(ex, apiResponse).toXML(w)
+            w.WriteEndElement()
 
         End Using
 

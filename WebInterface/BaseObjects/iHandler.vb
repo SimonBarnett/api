@@ -9,14 +9,6 @@ Imports System.Web.Configuration
 
 Public MustInherit Class iHandler : Inherits EndPoint
 
-#Region "Handler properties"
-    Public forms As New List(Of String)
-    Public thisport As Integer = 8080
-    Public rows As New Data
-    Public rowid As Integer = 0
-
-#End Region
-
 #Region "Metadata"
 
     Private _HandlerStyle As eHandlerStyle
@@ -78,9 +70,10 @@ Public MustInherit Class iHandler : Inherits EndPoint
                     _thisRequest.Load(XmlReader.Create(reader, ret))
 
                 Else
-                    ' And load
-                    _thisRequest.LoadXml(x)
-
+                    If _HandlerStyle = eHandlerStyle.xml Then
+                        ' And load
+                        _thisRequest.LoadXml(x)
+                    End If
                 End If
 
 
@@ -102,7 +95,7 @@ Public MustInherit Class iHandler : Inherits EndPoint
                 Dim objX As New XmlTextWriter(context.Response.OutputStream, Nothing)
                 With objX
                     .WriteStartDocument()
-                    .WriteStartElement("response")
+                    '.WriteStartElement("response")
 
                     Select Case _HandlerStyle
                         Case eHandlerStyle.stream
@@ -116,7 +109,7 @@ Public MustInherit Class iHandler : Inherits EndPoint
 
                     End Select
 
-                    .WriteEndElement() 'End Settings 
+                    '.WriteEndElement() 'End Settings 
                     .WriteEndDocument()
 
                     .Flush()

@@ -133,4 +133,16 @@
   <data name="setXML" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setXML.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Install" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Install.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="logDetail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logDetail.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="logXML" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logXML.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Query" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Query.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

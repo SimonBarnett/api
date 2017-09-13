@@ -3,14 +3,22 @@ Imports System.Web.Configuration
 
 Public Class priForm : Implements IDisposable
 
+    Private _parent As priForm = Nothing
+
     Private _name As String
     Private _columns As New List(Of String)
     Private _Subforms As New Dictionary(Of String, priForm)
+
+    Private _forms As List(Of String)
+    Private _rowid As Integer = 0
+    Private _rows As Data
 
 #Region "Constructor"
 
     Sub New(Name As String, ParamArray Columns() As String)
         _name = Name
+        _rows = New Data(Me)
+        _forms = New List(Of String)
         forms.Add(Name)
         For Each c As String In Columns
             _columns.Add(c)
@@ -20,6 +28,25 @@ Public Class priForm : Implements IDisposable
 #End Region
 
 #Region "Public Properties"
+
+    Public Property Parent As priForm
+        Get
+            Return _parent
+        End Get
+        Set(value As priForm)
+            _parent = value
+        End Set
+    End Property
+
+    Public ReadOnly Property myParent As priForm
+        Get
+            Dim f As priForm = Me
+            While Not f.Parent Is Nothing
+                f = f.Parent
+            End While
+            Return f
+        End Get
+    End Property
 
     Public ReadOnly Property Name As String
         Get
@@ -39,15 +66,6 @@ Public Class priForm : Implements IDisposable
         End Get
     End Property
 
-    Public Property Port As Integer
-        Get
-            Return thisport
-        End Get
-        Set(value As Integer)
-            thisport = value
-        End Set
-    End Property
-
     ReadOnly Property oDataHost As Uri
         Get
             Try
@@ -62,13 +80,68 @@ Public Class priForm : Implements IDisposable
 
 #End Region
 
+#Region "Parent only properties"
+
+    Public Property forms As List(Of String)
+        Get
+            If Me.Parent Is Nothing Then
+                Return _forms
+            Else
+                Throw New NotImplementedException
+            End If
+        End Get
+        Set(value As List(Of String))
+            If Me.Parent Is Nothing Then
+                _forms = value
+            Else
+                Throw New NotImplementedException
+            End If
+        End Set
+    End Property
+
+    Public Property rowid As Integer
+        Get
+            If Me.Parent Is Nothing Then
+                Return _rowid
+            Else
+                Throw New NotImplementedException
+            End If
+        End Get
+        Set(value As Integer)
+            If Me.Parent Is Nothing Then
+                _rowid = value
+            Else
+                Throw New NotImplementedException
+            End If
+        End Set
+    End Property
+
+    Public Property rows As Data
+        Get
+            If Me.Parent Is Nothing Then
+                Return _rows
+            Else
+                Throw New NotImplementedException
+            End If
+        End Get
+        Set(value As Data)
+            If Me.Parent Is Nothing Then
+                _rows = value
+            Else
+                Throw New NotImplementedException
+            End If
+        End Set
+    End Property
+
+#End Region
+
 #Region "Methods"
 
     Public Function AddForm(Name As String, ParamArray Columns() As String) As priForm
-
-        If Not forms.Contains(Name) Then
-            forms.Add(Name)
+        If Not myParent.forms.Contains(Name) Then
+            myParent.forms.Add(Name)
             _Subforms.Add(Name, New priForm(Name, Columns))
+            _Subforms(Name).Parent = Me
             Return _Subforms(Name)
 
         Else
@@ -193,10 +266,10 @@ Public Class priForm : Implements IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not disposedValue Then
             If disposing Then
-                rows.Clear()
-                rows = New Data
-                forms = New List(Of String)
-                rowid = 0
+                'rows.Clear()
+                'rows = New Data
+                'forms = New List(Of String)
+                'rowid = 0
             End If
 
             ' TODO: free unmanaged resources (unmanaged objects) and override Finalize() below.

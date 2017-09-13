@@ -95,10 +95,11 @@
     <Compile Include="BaseObjects\iFeed.vb" />
     <Compile Include="BaseObjects\iHandler.vb" />
     <Compile Include="Loading\apiError.vb" />
-    <Compile Include="Loading\Consts.vb" />
     <Compile Include="Loading\Data.vb" />
     <Compile Include="Loading\priForm.vb" />
     <Compile Include="Loading\priRow.vb" />
+    <Compile Include="logFeeds\log.vb" />
+    <Compile Include="logFeeds\LogDetail.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -149,6 +150,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\setfKeyReplace.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Install.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logDetail.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logXML.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Query.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

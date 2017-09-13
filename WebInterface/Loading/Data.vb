@@ -5,6 +5,13 @@ Imports Newtonsoft.Json.Linq
 
 Public Class Data : Inherits List(Of priRow)
 
+#Region "Constructor"
+    Private _form As priForm
+    Sub New(ByRef form As priForm)
+        _form = form
+    End Sub
+
+#End Region
 #Region "Private Properties"
 
     Private _encode As Encoding = Encoding.GetEncoding("utf-8")
@@ -31,10 +38,10 @@ Public Class Data : Inherits List(Of priRow)
 
             wr.WriteStartObject()
 
-            wr.WritePropertyName(rows(0).FormName)
+            wr.WritePropertyName(_form.rows(0).FormName)
             wr.WriteStartArray()
 
-            For Each r As priRow In rows
+            For Each r As priRow In _form.rows
                 wr.WriteStartObject()
                 r.toJson(wr)
                 wr.WriteEndObject()

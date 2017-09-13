@@ -61,6 +61,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property Install() As String
+            Get
+                Return ResourceManager.GetString("Install", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to USE [system]
         '''IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N&apos;[dbo].[apiLog]&apos;) AND type in (N&apos;U&apos;))
         '''BEGIN
@@ -77,6 +86,97 @@ Namespace My.Resources
         Friend ReadOnly Property log() As String
             Get
                 Return ResourceManager.GetString("log", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to declare @dd int --mandatory
+        '''declare @mm int --mandatory
+        '''declare @yy int --mandatory
+        '''
+        '''set @dd = datepart(day, getdate()) -1
+        '''set @mm = datepart(MONTH, getdate())
+        '''set @yy = datepart(year, getdate())
+        '''
+        '''declare @environment varchar(24) --mandatory
+        '''set @environment = &apos;demo&apos;
+        '''
+        '''declare @BubbleID varchar(64) --mandatory
+        '''set @BubbleID = &apos;e4592754-7f54-421c-8437-f54c00780a04&apos;
+        '''
+        '''select
+        '''	1 as Tag,
+        '''	Null as Parent,		
+        '''	@BubbleID as &quot;Log!1!BubbleID&quot;,  
+        '''	[severity] as &quot;Log!1!Severity&quot;,
+        '''	environment as &quot;Log!1 [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property logDetail() As String
+            Get
+                Return ResourceManager.GetString("logDetail", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to declare @dd int --mandatory
+        '''declare @mm int --mandatory
+        '''declare @yy int --mandatory
+        '''
+        '''set @dd = datepart(day, getdate()) -1
+        '''set @mm = datepart(MONTH, getdate())
+        '''set @yy = datepart(year, getdate())
+        '''
+        '''declare @environment varchar(24) --mandatory
+        '''set @environment = &apos;demo&apos;
+        '''
+        '''declare @BubbleID varchar(64) --mandatory
+        '''set @BubbleID = &apos;e4592754-7f54-421c-8437-f54c00780a04&apos;
+        '''
+        '''select
+        '''	logXml
+        '''	 
+        '''FROM [system].[dbo].[apiLog]
+        '''where 0=0
+        '''	and [logYear] = @yy
+        '''	and [logMonth] = @mm
+        '''	and [logDay]= @dd
+        '''	and [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property logXML() As String
+            Get
+                Return ResourceManager.GetString("logXML", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to declare @dd int
+        '''declare @mm int
+        '''declare @yy int
+        '''
+        '''declare @environment varchar(24) --mandatory
+        '''set @environment = &apos;demo&apos;
+        '''
+        '''declare @endpoint varchar(255) --mandatory
+        '''set @endpoint = &apos;basda-order-v3.ashx&apos;
+        '''
+        '''set @dd = datepart(day, getdate())
+        '''set @mm = datepart(MONTH, getdate())
+        '''set @yy = datepart(year, getdate())
+        '''
+        '''select &apos;&apos;, (
+        '''	SELECT 
+        '''		[displayTime] as &quot;@Time&quot;
+        '''		  ,[BubbleID] as &quot;@BubbleID&quot;
+        '''      
+        '''		  --,[method]
+        '''		  --,[endpoint]
+        '''		  ,[severity] as &quot;@Severity&quot;
+        '''		  ,[fKey] as &quot;@fkey&quot;
+        '''		 [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property Query() As String
+            Get
+                Return ResourceManager.GetString("Query", resourceCulture)
             End Get
         End Property
         
