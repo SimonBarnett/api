@@ -10,7 +10,7 @@ Add VIEW/PATCH REST actions to .ashx handlers in:
 Open file applicationHost.config with notepad.<br><br>
 Find all lines with .ashx and add ',VIEW,PATCH' after DEBUG but before ".<br><br>
 
-Copy the <a href="https://github.com/SimonBarnett/api/web.zip">web folder</a> to 
+Copy the <a href="https://github.com/SimonBarnett/api/api.zip">web folder</a> to 
 
 ```c:\inetpub\api```
 
