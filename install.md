@@ -29,9 +29,9 @@ Add an application to the Priority website with c:\inetpub\api as the root direc
 <li>This should list the Priority rich Installed files/folders. 
 <li>Right click Application Pools select Add Application Pool
 
-```Name = Api, 
+Name = Api, 
 .NET CLR Version = .NET CLR Version v4.0.30319
-Managed pipeline mode = Integrated```
+Managed pipeline mode = Integrated
 
 <li>Click OK
 
@@ -44,9 +44,9 @@ Set the identity of the API application pool to NetworkService
 Add an application to the Priority website with c:\inetpub\api as the root directory.
 <li>Right click Default Web Site and select Add Application.
 
-```Alias = API
+Alias = API
 Application pool = Api
-Physical Path = C:\inetpub\API```
+Physical Path = C:\inetpub\API
 
 <li>Click OK
 
