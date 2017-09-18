@@ -24,7 +24,7 @@ Add the login NT AUTHORITY\NETWORK SERVICE to the Priority database
 <li>Select Server Roles and add sysadmin, now click OK?
 
 <h2>In IIS:</h2>
-Add an application to the Priority website with c:\inetpub\api as the root directory.
+<h3>Add an application to the Priority website with c:\inetpub\api as the root directory.</h3>
 <li>Open IIS Manager, expand the tree until Default Web Site is displayed.
 <li>This should list the Priority rich Installed files/folders. 
 <li>Right click Application Pools select Add Application Pool
@@ -36,12 +36,12 @@ Managed pipeline mode = Integrated
 <li>Click OK
 
 
-Set the identity of the API application pool to NetworkService
+<h3>Set the identity of the API application pool to NetworkService</h3>
 <li>Select Api in application pools and click on advanced settings on the right hand side menu
 <li>Under section Process Model select item Identity click on box with three dots to change this to NetworkService
 <li>click OK
 
-Add an application to the Priority website with c:\inetpub\api as the root directory.
+<h3>Add an application to the Priority website with c:\inetpub\api as the root directory.</h3>
 <li>Right click Default Web Site and select Add Application.
 
 Alias = API
@@ -50,7 +50,7 @@ Physical Path = C:\inetpub\API
 
 <li>Click OK
 
-Set the server\instance of the Priority database connection in iis "connection strings"	
+<h3>Set the server\instance of the Priority database connection in iis "connection strings"	</h3>
 <li>Under Default Web Site select the API Application you just created and in the middle pane double click Connection Strings. 
 <li>Select the priority string and click edit on the right hand menu. 
 <li>In the Custom Box change the server name to the one you have locally.
