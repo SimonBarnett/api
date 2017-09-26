@@ -62,6 +62,6 @@ Physical Path = C:\inetpub\API
 Handlers require the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> to post oData to Priority. This should be installed seperately.
 
 <h2>To install .net templates</h2>
-<li>Copy endpoint templates from <a href="https://github.com/SimonBarnett/api/template.zip">the template folder</a> to:
+<li>Copy endpoint templates from <a href="https://github.com/SimonBarnett/api/blob/master/template.zip?raw=true">the template folder</a> to:
 
 ```\My Documents\Visual Studio Version\Templates\ItemTemplates\Language\```
