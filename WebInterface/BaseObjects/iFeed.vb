@@ -36,7 +36,6 @@ Public MustInherit Class iFeed : Inherits EndPoint
 
 #End Region
 
-
 #Region "Process Request"
 
     Public Sub Install(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory)
@@ -45,7 +44,9 @@ Public MustInherit Class iFeed : Inherits EndPoint
 
         With log.LogData
             .AppendFormat("Installing SQL from {0}.", Name).AppendLine()
-            ExecuteNonQuery(String.Format("use {0}; {1}", requestEnv, InstallQuery))
+            For Each statement As String In Split(InstallQuery, vbCrLf & "go" & vbCrLf,, CompareMethod.Text)
+                ExecuteNonQuery(String.Format("use {0}; {1}", requestEnv, statement))
+            Next
 
         End With
 

@@ -209,33 +209,6 @@ Public Class httpHandler
                                             Exit For
                                         End If
 
-                                        'If Not HttpContext.Current.Request.Url.ToString.Contains("?log&") Then
-                                        '    If isEndPoint(TryCast(.Value, EndPoint)) Then
-                                        '        With TryCast(.Value, EndPoint)
-                                        '            .BubbleID = BubbleID
-                                        '            .dbConnection = dbConnection
-                                        '        End With
-                                        '        .Value.ProcessRequest(context, log, msgfactory)
-                                        '        f = True
-                                        '        Exit For
-                                        '    End If
-
-                                        'Else
-                                        '    If String.Compare(
-                                        '        TryCast(.Value, EndPoint).Name,
-                                        '        "log",
-                                        '        True) _
-                                        '    = 0 Then
-                                        '        With TryCast(.Value, EndPoint)
-                                        '            .BubbleID = BubbleID
-                                        '            .dbConnection = dbConnection
-                                        '        End With
-                                        '        .Value.ProcessRequest(context, log, msgfactory)
-                                        '        f = True
-                                        '        Exit For
-                                        '    End If
-
-                                        'End If
                                     End With
                                 Next
                             End If

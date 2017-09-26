@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\web\bin\</OutputPath>
+    <OutputPath>C:\inetpub\api\bin\</OutputPath>
     <DocumentationFile>feedTemplate.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -45,10 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MessageInterface">
-      <HintPath>..\..\..\web\bin\MessageInterface.dll</HintPath>
+      <HintPath>C:\inetpub\api\bin\MessageInterface.dll</HintPath>
     </Reference>
     <Reference Include="svcMessage">
-      <HintPath>..\..\..\web\bin\svcMessage.dll</HintPath>
+      <HintPath>C:\inetpub\api\bin\svcMessage.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Web" />

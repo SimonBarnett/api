@@ -7,9 +7,9 @@ Imports PriPROC6.Interface.Message
 Imports System.IO
 
 <Export(GetType(xmlHandler))>
-<ExportMetadata("EndPoint", "handlerName")>
+<ExportMetadata("EndPoint", "{handlerName}")>
 <ExportMetadata("HandlerStyle", eHandlerStyle.xml)>
-Public Class Handler : Inherits iHandler : Implements xmlHandler
+Public Class {HandlerName} : Inherits iHandler : Implements xmlHandler
 
 #Region "Base Methods"
 

@@ -5,8 +5,8 @@ Imports PriPROC6.Interface.Web
 Imports PriPROC6.svcMessage
 
 <Export(GetType(xmlFeed))>
-<ExportMetadata("EndPoint", "FeedName")>
-Public Class FeedName : Inherits iFeed : Implements xmlFeed
+<ExportMetadata("EndPoint", "{FeedName}")>
+Public Class {FeedName} : Inherits iFeed : Implements xmlFeed
 
 #Region "Base Methods"
 
