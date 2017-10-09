@@ -1,8 +1,8 @@
-declare @part varchar(32) --mandatory
+declare @part INT --mandatory
 
 select '', (
 	select	PARTNAME
 	from PART
-	where PARTNAME in (@part)
+	where PART in (@part)
 	for XML PATH('parts'), type)
 for XML PATH('result'), type

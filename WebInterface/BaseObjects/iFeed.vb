@@ -211,10 +211,7 @@ Public MustInherit Class iFeed : Inherits EndPoint
                         sqlString,
                         String.Format(
                             "in ({0})",
-                            String.Format(
-                                "'{0}'",
-                                GETRequest(k).Replace(",", "', '")
-                            )
+                            Apostrophe(GETRequest(k), VarType)
                         )
                     )
                     sqlString = CountStatement.Replace(
@@ -237,14 +234,23 @@ Public MustInherit Class iFeed : Inherits EndPoint
 #Region "Private Functions"
 
     Function Apostrophe(Value As String, vType As String)
-        Select Case vType
-            Case "char", "varchar", "text", "nchar", "nvarchar", "ntext"
-                Return String.Format("'{0}'", Value)
+        Dim sb As New StringBuilder
+        Dim first As Boolean = True
+        For Each str As String In Split(Value, ",")
+            Select Case vType
+                Case "char", "varchar", "text", "nchar", "nvarchar", "ntext"
+                    If Not first Then sb.Append(",")
+                    sb.Append(String.Format("'{0}'", str))
 
-            Case Else
-                Return String.Format("{0}", Value)
+                Case Else
+                    If Not first Then sb.Append(",")
+                    sb.Append(String.Format("{0}", str))
 
-        End Select
+            End Select
+            first = False
+        Next
+
+        Return sb.ToString
 
     End Function
 
