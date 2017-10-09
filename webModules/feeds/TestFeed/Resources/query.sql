@@ -1,7 +1,8 @@
-declare @user varchar(32) --mandatory
-set @user ='Simon'
+declare @part varchar(32) --mandatory
 
-select 
-	'hello' as "@test",
-	@user as "@name" 
+select '', (
+	select	PARTNAME
+	from PART
+	where PARTNAME in (@part)
+	for XML PATH('parts'), type)
 for XML PATH('result'), type

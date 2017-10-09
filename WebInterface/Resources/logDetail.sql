@@ -28,7 +28,7 @@ where 0=0
 	and [logYear] = @yy
 	and [logMonth] = @mm
 	and [logDay]= @dd
-	and [environment] = @environment
+	and lower([environment]) = lower(@environment)
 	and [BubbleID] = @BubbleID
 
 for xml explicit

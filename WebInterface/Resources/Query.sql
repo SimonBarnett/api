@@ -30,8 +30,8 @@ select '', (
 		  and [logYear] = @yy
 		  and [logMonth] = @mm
 		  and [logDay]= @dd
-		  and [environment] = @environment
-		  and [endpoint] = @page 
+		  and lower([environment]) = lower(@environment)
+		  and lower([endpoint]) = lower(@page)
 
 		order by logTime DESC
 		for XML PATH('item'), type)
