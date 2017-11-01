@@ -15,7 +15,10 @@ Copy the <a href="https://github.com/SimonBarnett/api/blob/master/api.zip?raw=tr
 ```c:\inetpub\api```
 
 <h2>In MSSQL:</h2>
-Add the login NT AUTHORITY\NETWORK SERVICE to the Priority database
+  Add the login to the Priority database: 
+  <li>NT AUTHORITY\NETWORK SERVICE for local installs 
+  <li>domain\webserver$ if webserver is not on the same machine as as the SQL server
+  
 <li>Open SMSS and log in with Admin Credentials.
 <li>Expand Security then Logins, right click Logins and select New Login
 <li>Click Search box next to Login Name and then click advanced, Find now.
@@ -53,9 +56,9 @@ Physical Path = C:\inetpub\API
 <h3>Set the server\instance of the Priority database connection in iis "connection strings"	</h3>
 <li>Under Default Web Site select the API Application you just created and in the middle pane double click Connection Strings. 
 <li>Select the priority string and click edit on the right hand menu. 
-<li>In the Custom Box change the server name to the one you have locally.
+<li>In the Custom Box change change the server\instance name to match your priority server\instance name.
 
-<h2>Optionaly</h2> 
+  <h2>Optionaly</h2> 
 <li>set the host/port of the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a> in "application settings"
 
 <h2>Setting up the <a href="https://github.com/SimonBarnett/apiLoad">nodeJS loading service</a></h2>
