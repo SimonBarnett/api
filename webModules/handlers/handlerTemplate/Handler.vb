@@ -2,82 +2,102 @@
 Imports System.Xml
 Imports System.Web
 Imports PriPROC6.Interface.Web
-Imports PriPROC6.svcMessage
-Imports PriPROC6.Interface.Message
 Imports System.IO
+Imports Newtonsoft.Json
 
 <Export(GetType(xmlHandler))>
-<ExportMetadata("EndPoint", "{handlerName}")>
-<ExportMetadata("HandlerStyle", eHandlerStyle.xml)>
-Public Class {HandlerName} : Inherits iHandler : Implements xmlHandler
+<ExportMetadata("EndPoint", "$itemname$")>
+<ExportMetadata("Hidden", False)>
+Public Class $itemname$ : Inherits iHandler : Implements xmlHandler
 
-#Region "Base Methods"
-
-    Shadows Sub ProcessRequest(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlHandler.ProcessRequest
-        MyBase.ProcessRequest(context, log, msgFactory)
-    End Sub
-
-    Shadows Sub SetMeta(ByRef Metadata As xmlHandlerProps) Implements xmlHandler.SetMeta
-        MyBase.SetMeta(Metadata)
-    End Sub
-
-#End Region
-
+    ''' <summary>
+    ''' Overides the XML schema for the handler
+    ''' </summary>
+    ''' <param name="Schemas">The XmlSchemaSet for the request</param>
     Public Overrides Sub XmlStylesheet(ByRef Schemas As Schema.XmlSchemaSet)
         With Schemas
-
+            '    .Add(
+            '        "urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01",
+            '        New XmlTextReader(
+            '            New StringReader(
+            '                My.Resources.basda_order_v3
+            '            )
+            '        )
+            '    )
         End With
     End Sub
 
+    ''' <summary>
+    ''' Overrides XML handler with a StreamReader for business object parsing.
+    ''' </summary>
+    ''' <param name="w"></param>
+    ''' <param name="Request"></param>
     Public Overrides Sub StreamHandler(ByRef w As XmlTextWriter, ByRef Request As StreamReader)
-        MyBase.StreamHandler(w, Request)
+        'MyBase.StreamHandler(w, Request)
+
     End Sub
 
+    ''' <summary>
+    ''' Overrides XML handler with an XML document for manual parsing.
+    ''' </summary>
+    ''' <param name="w">The response stream as a XmlTextWriter</param>
+    ''' <param name="Request">The request as an XmlDocument</param>
     Public Overrides Sub XMLHandler(ByRef w As XmlTextWriter, ByRef Request As XmlDocument)
 
-        log.LogData.AppendFormat("Running in company {0}.", requestEnv).AppendLine()
+        'log.LogData.AppendFormat("Running in company {0}.", requestEnv).AppendLine()
 
-        Using cust As New priForm("CUSTOMERS", "CUSTNAME", "CUSTDES")
-            With cust
-                Dim contacts = .AddForm("CUSTPERSONNEL", "NAME", "FIRM", "EMAIL")
-                Dim tasks = .AddForm("CUSTNOTES", "SUBJECT", "CURDATE", "STIME", "ETIME")
-                Dim addy = contacts.AddForm("BILLTO", "ADDRESS", "ADDRESS2", "ZIP")
+        'Using cust As New priForm("CUSTOMERS", "CUSTNAME", "CUSTDES")
+        '    With cust
+        '        Dim contacts = .AddForm("CUSTPERSONNEL", "NAME", "FIRM", "EMAIL")
+        '        Dim tasks = .AddForm("CUSTNOTES", "SUBJECT", "CURDATE", "STIME", "ETIME")
+        '        Dim addy = contacts.AddForm("BILLTO", "ADDRESS", "ADDRESS2", "ZIP")
 
-                Dim r As priRow = .AddRow("Cust0001", "Customer")
+        '        Dim r As priRow = .AddRow("Cust0001", "Customer")
 
-                addy.AddRow(
-                    contacts.AddRow(
-                        r, "Si B", "Customer", "si@ntsa.org.uk"
-                    ),
-                    "48 Great Park", "Leyland", "pr25 3un"
-                )
+        '        addy.AddRow(
+        '            contacts.AddRow(
+        '                r, "Si B", "Customer", "si@ntsa.org.uk"
+        '            ),
+        '            "48 Great Park", "Leyland", "pr25 3un"
+        '        )
 
-                addy.AddRow(
-                    contacts.AddRow(
-                        r, "jo B", "Customer", "jo@ntsa.org.uk"
-                    ),
-                    "49 Great Park", "Leyland", "pr25 3un"
-                )
+        '        addy.AddRow(
+        '            contacts.AddRow(
+        '                r, "jo B", "Customer", "jo@ntsa.org.uk"
+        '            ),
+        '            "49 Great Park", "Leyland", "pr25 3un"
+        '        )
 
-                With contacts
-                    .AddRow(r, "Emilie B", "Customer", Nothing)
-                End With
+        '        With contacts
+        '            .AddRow(r, "Emilie B", "Customer", Nothing)
+        '        End With
 
-                With tasks
-                    .AddRow(r, "A Task", "2017-08-28T00:00Z", "10:00", "12:00")
-                    .AddRow(r, "B Task", "2017-08-29T00:00Z", "12:00", "11:00")
-                End With
+        '        With tasks
+        '            .AddRow(r, "A Task", "2017-08-28T00:00Z", "10:00", "12:00")
+        '            .AddRow(r, "B Task", "2017-08-29T00:00Z", "12:00", "11:00")
+        '        End With
 
-            End With
+        '    End With
 
-            setKey(BubbleID)
+        '    setKey(BubbleID)
 
-            Dim ex As Exception = Nothing
-            cust.Post(ex)
-            If Not TypeOf ex Is apiResponse Then Throw (ex)
-            TryCast(ex, apiResponse).toXML(w)
+        '    Dim ex As Exception = Nothing
+        '    cust.Post(ex)
+        '    If Not TypeOf ex Is apiResponse Then Throw (ex)
+        '    TryCast(ex, apiResponse).toXML(w)
 
-        End Using
+        'End Using
+
+    End Sub
+
+    ''' <summary>
+    ''' Overrides handler for JSON data.
+    ''' </summary>
+    ''' <param name="w">The response stream as a JsonWriter</param>
+    ''' <param name="json">The JSON request data</param>
+    Public Overrides Sub jsonHandler(ByRef w As JsonWriter, ByRef json As String)
+        'Dim e As BusinessObject = JsonConvert.DeserializeObject(json, GetType(BusinessObject))
+        'e.write(w)
 
     End Sub
 

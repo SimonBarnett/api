@@ -12,6 +12,7 @@ Public Class Data : Inherits List(Of priRow)
     End Sub
 
 #End Region
+
 #Region "Private Properties"
 
     Private _encode As Encoding = Encoding.GetEncoding("utf-8")

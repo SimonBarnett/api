@@ -1,0 +1,52 @@
+<JDF xmlns="http://www.CIP4.org/JDFSchema_1_1" JobID="63248863" Status="Waiting" Type="Product" Version="1.3">
+  <ProductDefinition xmlns="urn:schemas-acchsh-com:jdf-2004">
+    <ProductParams ProductTemplate="Cafe Banner" PageCount="4" Copies="1000" Barcode="false">
+      <PriceInfo TotalNet="" TotalGross="" Cost="" Currency="GBP" TaxRate="23"/>
+      <ProductFormat Bleed="3.0" Name="A4" Orientation="Portrait"/>
+      <ColorParams Type="Cmyk"/>
+      <PaperParams Type="Endurance Polyester (155gsm)" Gramature="90"/>
+    </ProductParams>
+  </ProductDefinition>
+  <ResourcePool>
+    <RunList Class="Parameter" ID="0002" Status="Available" PartIDKeys="Run">
+      <RunList Pages="0~-1" Run="1">
+        <LayoutElement>
+          <FileSpec URL="file:///"/>
+        </LayoutElement>
+      </RunList>
+    </RunList>
+    <CustomerInfo CustomerID="JDFUSR007" ID="CustomerLink" Class="Parameter">
+      <Contact ID="CustomerContact1">
+        <Address City="Cracow" PostalCode="31-638" Street="41c Jana Pawla II"/>
+        <Company OrganizationName="PuzzleFlow"/>
+        <Person FirstName="John" FamilyName="Bean"/>
+        <ComChannel ChannelType="Email" Locator="mailto:jdf-test@puzzleflow.com"/>
+      </Contact>
+    </CustomerInfo>
+    <DeliveryIntent Class="Intent" ID="OrderDelivery" Method="6" Required="2018-11-17T09:34:45+00:00" Transfer="PrinterToBuyerDeliver"/>
+    <NodeInfo Class="Parameter" TargetRoute="http://localhost:82/pod/jdf/target"/>
+    <Payment xmlns="urn:schemas-acchsh-com:jdf-2004" Type="7" Deadline="2018-11-20T09:34:45+00:00"/>
+    <OrderPrice xmlns="urn:schemas-acchsh-com:jdf-2004">
+      <PriceInfo TotalNet="" TotalGross="" Currency="GBP"/>
+    </OrderPrice>
+  </ResourcePool>
+  <ResourceLinkPool>
+    <RunListLink rRef="0002" Usage="Input" ProcessUsage="Document"/>
+    <CustomerInfoLink rRef="CustomerLink" Usage="Input"/>
+    <NodeInfoLink rRef="NodeInfoLink" Usage="Input"/>
+    <DeliveryIntentLink rRef="OrderDelivery" Usage="Input"/>
+  </ResourceLinkPool>
+<JDF ID="ApprovalProcess1" Type="Approval" Status="Waiting">
+  <ResourcePool>
+    <ApprovalParams ID="ProductApprovalID" Class="Parameter">
+      <ApprovalPerson>
+        <ContactRef rRef="OrderCustomerContact"/>
+      </ApprovalPerson>
+      <ApprovalMode Mode="NoProof"/>
+    </ApprovalParams>
+  </ResourcePool>
+  <ResourceLinkPool>
+    <ApprovalParamsLink rRef="ProductApprovalID" Usage="Input"/>
+  </ResourceLinkPool>
+</JDF>
+</JDF>

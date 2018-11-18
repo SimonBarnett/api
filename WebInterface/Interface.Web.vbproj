@@ -47,21 +47,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MessageInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\web\Bin\MessageInterface.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="PriSock, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\web\Bin\PriSock.dll</HintPath>
-    </Reference>
-    <Reference Include="svcMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\web\Bin\svcMessage.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -88,6 +76,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseObjects\EndPoint.vb" />
+    <Compile Include="BaseObjects\JsonTextWriter.vb" />
+    <Compile Include="BuiltInFeeds\fso.vb" />
+    <Compile Include="BuiltInFeeds\dbo.vb" />
+    <Compile Include="BuiltInFeeds\view.vb" />
+    <Compile Include="svcMsg\oMsgLog.vb" />
     <Compile Include="GetParams.vb" />
     <Compile Include="Interfaces\handlerInterface.vb" />
     <Compile Include="httpHandler.vb" />
@@ -98,8 +91,8 @@
     <Compile Include="Loading\Data.vb" />
     <Compile Include="Loading\priForm.vb" />
     <Compile Include="Loading\priRow.vb" />
-    <Compile Include="logFeeds\log.vb" />
-    <Compile Include="logFeeds\LogDetail.vb" />
+    <Compile Include="BuiltInFeeds\log.vb" />
+    <Compile Include="BuiltInFeeds\LogDetail.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -115,6 +108,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WebControls\ViewTree.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

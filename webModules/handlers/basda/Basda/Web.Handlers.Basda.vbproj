@@ -44,12 +44,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MessageInterface">
-      <HintPath>..\..\..\..\web\bin\MessageInterface.dll</HintPath>
-    </Reference>
-    <Reference Include="svcMessage">
-      <HintPath>..\..\..\..\web\bin\svcMessage.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />

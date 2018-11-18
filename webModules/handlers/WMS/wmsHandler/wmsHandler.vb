@@ -1,26 +1,13 @@
 ﻿Imports System.ComponentModel.Composition
+Imports System.IO
 Imports System.Xml
-Imports System.Web
+Imports Newtonsoft.Json
 Imports PriPROC6.Interface.Web
-Imports PriPROC6.svcMessage
-Imports PriPROC6.Interface.Message
 
 <Export(GetType(xmlHandler))>
 <ExportMetadata("EndPoint", "wmshandler")>
-<ExportMetadata("HandlerStyle", eHandlerStyle.xml)>
+<ExportMetadata("Hidden", False)>
 Public Class wmsHandler : Inherits iHandler : Implements xmlHandler
-
-#Region "Base Methods"
-
-    Shadows Sub ProcessRequest(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlHandler.ProcessRequest
-        MyBase.ProcessRequest(context, log, msgFactory)
-    End Sub
-
-    Shadows Sub SetMeta(ByRef Metadata As xmlHandlerProps) Implements xmlHandler.SetMeta
-        MyBase.SetMeta(Metadata)
-    End Sub
-
-#End Region
 
     Public Overrides Sub XmlStylesheet(ByRef Schemas As Schema.XmlSchemaSet)
         With Schemas
@@ -79,7 +66,6 @@ Public Class wmsHandler : Inherits iHandler : Implements xmlHandler
 
     End Sub
 
-    Private Sub xmlHandler_ProcessRequest(ByRef context As Web.HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlHandler.ProcessRequest
-        Throw New NotImplementedException()
-    End Sub
+
+
 End Class

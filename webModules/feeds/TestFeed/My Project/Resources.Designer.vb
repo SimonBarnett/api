@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("PriPROC6.Web.Feed.TestFeed.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("PriPROC6.Web.Feeds.Test.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -61,7 +61,21 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to .
+        '''  Looks up a localized string similar to IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N&apos;[dbo].[DATETOMIN]&apos;) AND type in (N&apos;FN&apos;, N&apos;IF&apos;, N&apos;TF&apos;, N&apos;FS&apos;, N&apos;FT&apos;))
+        '''BEGIN
+        '''execute dbo.sp_executesql @statement = N&apos;-- =============================================
+        '''-- Author:		&lt;Author,,Name&gt;
+        '''-- Create date: &lt;Create Date, ,&gt;
+        '''-- Description:	&lt;Description, ,&gt;
+        '''-- =============================================
+        '''create FUNCTION [dbo].[DATETOMIN] 
+        '''(
+        '''	-- Add the parameters for the function here
+        '''	@DT as datetime
+        ''')
+        '''RETURNS int
+        '''AS
+        '''BEGI [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property install() As String
             Get
@@ -70,12 +84,13 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to declare @user varchar(32) --mandatory
-        '''set @user =&apos;Simon&apos;
+        '''  Looks up a localized string similar to declare @part INT --mandatory
         '''
-        '''select 
-        '''	&apos;hello&apos; as &quot;@test&quot;,
-        '''	@user as &quot;@name&quot; 
+        '''select &apos;&apos;, (
+        '''	select	PARTNAME
+        '''	from PART
+        '''	where PART in (@part)
+        '''	for XML PATH(&apos;parts&apos;), type)
         '''for XML PATH(&apos;result&apos;), type.
         '''</summary>
         Friend ReadOnly Property query() As String

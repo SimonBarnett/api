@@ -2,20 +2,16 @@
 Imports System.Text
 Imports System.Web
 Imports System.Xml
-Imports System.Net
-Imports PriPROC6.Interface.Message
-Imports PriPROC6.svcMessage
-Imports System.Web.Configuration
+Imports Newtonsoft.Json
 
 Public MustInherit Class iHandler : Inherits EndPoint
 
 #Region "Metadata"
 
-    Private _HandlerStyle As eHandlerStyle
     Public Sub SetMeta(ByRef Metadata As xmlHandlerProps)
         With Metadata
             Name = .EndPoint
-            _HandlerStyle = .HandlerStyle
+            Hidden = .Hidden
         End With
 
     End Sub
@@ -36,94 +32,106 @@ Public MustInherit Class iHandler : Inherits EndPoint
         Throw New NotImplementedException()
     End Sub
 
+    Public Overridable Sub jsonHandler(ByRef w As JsonWriter, ByRef json As String)
+        Throw New NotImplementedException()
+    End Sub
+
 #End Region
 
 #Region "Process Request"
 
     Dim _thisRequest As New XmlDocument
-    Public Overrides Sub ProcessRequest(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory)
+    Public Overrides Sub ProcessRequest(ByVal context As HttpContext)
 
-        MyBase.log = log
-        MyBase.msgfactory = msgFactory
-
+        Dim x As String
         Dim reader As StreamReader = Nothing
+
         With context
             Try
-                ' Read from stream                
                 reader = New StreamReader(.Request.InputStream)
-                Dim x As String = reader.ReadToEnd
-                While Not String.Compare(x.Substring(0, 1), "<") = 0
-                    x = x.Substring(1)
-                End While
-
-                setXml(x)
-
-                ' Add XSDs
-                Dim ret As New XmlReaderSettings()
-                XmlStylesheet(ret.Schemas)
-                If ret.Schemas.Count > 0 Then
-                    ret.ValidationType = ValidationType.Schema
-                    log.LogData.AppendFormat("{0} XSDs loaded.", _thisRequest.Schemas.Schemas.Count).AppendLine()
-                    reader.BaseStream.Position = 0
-
-                    ' And load
-                    _thisRequest.Load(XmlReader.Create(reader, ret))
-
-                Else
-                    If _HandlerStyle = eHandlerStyle.xml Then
-                        ' And load
-                        _thisRequest.LoadXml(x)
-                    End If
-                End If
-
-
-            Catch ex As Exception
                 With reader
-                    .Close()
-                    .Dispose()
+                    x = reader.ReadToEnd
+                    While Not (String.Compare(x.Substring(0, 1), "<") = 0 Or String.Compare(x.Substring(0, 1), "{") = 0)
+                        x = x.Substring(1)
+                    End While
+                    If Not x.Length > 0 Then
+                        Throw New Exception("Invalid data.")
+                    End If
+                    .BaseStream.Position = 0
                 End With
-                Throw New Exception(String.Format("Bad request: {0}", ex.Message))
 
+                With .Response
+                    Select Case apiLang
+                        Case eLang.json
+                            .ContentType = "text/json"
+                            setXml(String.Format("<json><![CDATA[{0}]]></json>", x))
 
-            End Try
+                            Using strm As New StreamWriter(.OutputStream)
+                                Using objx As New JsonTextWriter(strm)
+                                    With objx
+                                        log.LogData.Append("Passing to JSON handler.").AppendLine()
+                                        jsonHandler(objx, x)
 
-            With .Response
-                .Clear()
-                .ContentType = "text/xml"
-                .ContentEncoding = Encoding.UTF8
+                                    End With
+                                End Using
 
-                Dim objX As New XmlTextWriter(context.Response.OutputStream, Nothing)
-                With objX
-                    .WriteStartDocument()
-                    '.WriteStartElement("response")
-
-                    Select Case _HandlerStyle
-                        Case eHandlerStyle.stream
-                            reader.BaseStream.Position = 0
-                            log.LogData.Append("Passing to stream handler.").AppendLine()
-                            StreamHandler(objX, reader)
+                            End Using
 
                         Case Else
-                            log.LogData.Append("Passing to XML Document handler.").AppendLine()
-                            XMLHandler(objX, _thisRequest)
+                            .ContentType = "text/xml"
+                            setXml(x)
+
+                            ' Add XSDs
+                            Dim ret As New XmlReaderSettings()
+                            XmlStylesheet(ret.Schemas)
+                            If ret.Schemas.Count > 0 Then
+                                ret.ValidationType = ValidationType.Schema
+                                log.LogData.AppendFormat("{0} XSDs loaded.", _thisRequest.Schemas.Schemas.Count).AppendLine()
+                                reader.BaseStream.Position = 0
+
+                                ' And load
+                                _thisRequest.Load(XmlReader.Create(reader, ret))
+
+                            Else
+                                _thisRequest.LoadXml(x)
+
+                            End If
+
+                            Using objX As New XmlTextWriter(.OutputStream, Nothing)
+                                With objX
+                                    .WriteStartDocument()
+
+                                    Try
+                                        reader.BaseStream.Position = 0
+                                        log.LogData.Append("Passing to stream handler.").AppendLine()
+                                        StreamHandler(objX, reader)
+
+                                    Catch ex As NotImplementedException
+                                        Try
+                                            log.LogData.Append("Passing to XML Document handler.").AppendLine()
+                                            XMLHandler(objX, _thisRequest)
+
+                                        Catch ex2 As NotImplementedException
+                                            Throw New NotImplementedException
+
+                                        End Try
+                                    End Try
+
+                                    .WriteEndDocument()
+
+                                End With
+
+                            End Using
 
                     End Select
 
-                    '.WriteEndElement() 'End Settings 
-                    .WriteEndDocument()
-
-                    .Flush()
-                    .Close()
-
                 End With
 
-            End With
+            Catch ex As Exception
+                Throw (ex)
 
-        End With
+            End Try
 
-        With reader
-            .Close()
-            .Dispose()
         End With
 
     End Sub

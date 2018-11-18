@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{335AA7BF-58F1-4B0D-8ECB-CC50A4CADA5D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PriPROC6.Web.Feed.TestFeed</RootNamespace>
+    <RootNamespace>PriPROC6.Web.Feeds.Test</RootNamespace>
     <AssemblyName>TestFeed</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
@@ -46,14 +46,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MessageInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>M:\Server\PriProc6\api\web\bin\MessageInterface.dll</HintPath>
-    </Reference>
-    <Reference Include="svcMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>M:\Server\PriProc6\api\web\bin\svcMessage.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />

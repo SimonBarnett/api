@@ -1,40 +1,36 @@
 ﻿Imports System.ComponentModel.Composition
 Imports System.Web
-Imports PriPROC6.Interface.Message
 Imports PriPROC6.Interface.Web
-Imports PriPROC6.svcMessage
 
 <Export(GetType(xmlFeed))>
-<ExportMetadata("EndPoint", "{FeedName}")>
-Public Class {FeedName} : Inherits iFeed : Implements xmlFeed
+<ExportMetadata("EndPoint", "$itemname$")>
+<ExportMetadata("Hidden", False)>
+Public Class $itemname$ : Inherits iFeed : Implements xmlFeed
 
-#Region "Base Methods"
+    ''' <summary>
+    ''' Override the processing of the current context.
+    ''' </summary>
+    ''' <param name="context">The current HTTP context</param>
+    Overrides Sub ProcessReq(ByVal context As HttpContext)
 
-    Shadows Sub ProcessRequest(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlFeed.ProcessRequest
-        MyBase.ProcessRequest(context, log, msgFactory)
     End Sub
 
-    Shadows Sub SetMeta(ByRef Metadata As xmlFeedProps) Implements xmlFeed.SetMeta
-        MyBase.SetMeta(Metadata)
-    End Sub
-
-    Shadows Sub Install(ByRef context As HttpContext, ByRef log As oMsgLog, ByRef msgFactory As msgFactory) Implements xmlFeed.Install
-        MyBase.Install(context, log, msgFactory)
-    End Sub
-
-#End Region
-
-    Overrides Function Query(Optional view As String = Nothing) As String
-        Select Case view
-            Case Else
-                Return My.Resources.Query
-
-        End Select
+    ''' <summary>
+    ''' The feed Query.
+    ''' </summary>
+    ''' <returns>The SQL Query string for this MEF feed.</returns>
+    Overrides Function Query() As String
+        Return My.Resources.Query
 
     End Function
 
-    Public Overrides Function InstallQuery() As String
+    ''' <summary>
+    ''' The sql command containing the dependant SQL objects
+    ''' </summary>
+    ''' <returns>The install QSL for this Feed</returns>
+    Overrides Function InstallQuery() As String
         Return My.Resources.install
+
     End Function
 
 End Class

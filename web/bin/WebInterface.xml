@@ -185,17 +185,11 @@ update [dbo].[apiLog] set
 where BubbleID = @BubbleID.
 </summary>
 </member>
-<member name="P:PriPROC6.Interface.Web.EndPoint.BubbleID">
+<member name="M:PriPROC6.Interface.Web.EndPoint.Environments">
  <summary>
- The transaction ID. Returned as a host header to client
+ A List of valid Priority Companies
  </summary>
- <returns></returns>
-</member>
-<member name="P:PriPROC6.Interface.Web.EndPoint.requestEnv">
- <summary>
- The requested Priority environment
- </summary>
- <returns></returns>
+ <returns>List(Of String)</returns>
 </member>
 <member name="M:PriPROC6.Interface.Web.EndPoint.setKey(System.String,System.Boolean)">
  <summary>
@@ -206,18 +200,11 @@ where BubbleID = @BubbleID.
  <param name="x">The key value from the foreign system</param>
  <param name="Overwrite">Associate this log with saved key</param>
 </member>
-<member name="M:PriPROC6.Interface.Web.EndPoint.Environments">
- <summary>
- A List of valid Priority Companies
- </summary>
- <returns>List(Of String)</returns>
-</member>
-<member name="M:PriPROC6.Interface.Web.iFeed.Query(System.String)">
+<member name="M:PriPROC6.Interface.Web.iFeed.Query">
  <summary>
  The sql query that will be executed.
  Parameters are caputured from the GET request.
  </summary>
- <param name="View">Optional view GET parameter</param>
  <returns></returns>
 </member>
 <member name="M:PriPROC6.Interface.Web.iFeed.InstallQuery">
