@@ -29,7 +29,7 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
 
 #Region "Imported MEF Enumerables"
 
-    Public ReadOnly Property BinCatalog As Primitives.ComposablePartCatalog
+    Private ReadOnly Property BinCatalog As Primitives.ComposablePartCatalog
         Get
             Return New DirectoryCatalog(
                 Path.Combine(
@@ -41,18 +41,39 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
     End Property
 
     <ImportMany()>
-    Public Property handlers As IEnumerable(Of Lazy(Of xmlHandler, xmlHandlerProps))
+    Private Property _handlers As IEnumerable(Of Lazy(Of xmlHandler, xmlHandlerProps))
+    Public ReadOnly Property handlers As IEnumerable(Of Lazy(Of xmlHandler, xmlHandlerProps))
+        Get
+            Return HttpContext.Current.Items("handlers")
+        End Get
+    End Property
 
     <ImportMany()>
-    Public Property feeds As IEnumerable(Of Lazy(Of xmlFeed, xmlFeedProps))
+    Private Property _feeds As IEnumerable(Of Lazy(Of xmlFeed, xmlFeedProps))
+    Public ReadOnly Property feeds As IEnumerable(Of Lazy(Of xmlFeed, xmlFeedProps))
+        Get
+            Return HttpContext.Current.Items("feeds")
+        End Get
+    End Property
 
     Public Sub New()
 
-        Dim catalog = New AggregateCatalog()
-        catalog.Catalogs.Add(BinCatalog)
+        With HttpContext.Current.Items
+            If .Item("mefLoad") Is Nothing Then
 
-        Dim container As New CompositionContainer(catalog)
-        container.ComposeParts(Me)
+                Dim catalog = New AggregateCatalog()
+                catalog.Catalogs.Add(BinCatalog)
+
+                Dim container As New CompositionContainer(catalog)
+                container.ComposeParts(Me)
+
+                .Add("mefLoad", True)
+                .Add("feeds", _feeds)
+                .Add("handlers", _handlers)
+
+            End If
+
+        End With
 
     End Sub
 
@@ -191,19 +212,20 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
                     End If
 
                     ' Check database objects
-                    Dim sps As Dictionary(Of String, Integer) = spXML()
-                    For Each sp As String In sps.Keys()
-                        If String.Compare(
-                            sp,
-                            String.Format("{0}.{1}", Name, requestEndpoint),
-                            True
-                        ) = 0 Then
-                            HttpContext.Current.Items("xmlSP") = sps(sp)
-                            Return True
+                    With HttpContext.Current.Items.Item("xmlSPList")
+                        For Each sp As String In .Keys()
+                            If String.Compare(
+                                sp,
+                                String.Format("{0}.{1}", Name, requestEndpoint),
+                                True
+                            ) = 0 Then
+                                HttpContext.Current.Items("xmlSP") = .Item(sp)
+                                Return True
 
-                        End If
+                            End If
 
-                    Next
+                        Next
+                    End With
 
             End Select
 
@@ -213,6 +235,7 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
                     requestEndpoint,
                     True
                 ) = 0
+
         End Get
 
     End Property
@@ -358,7 +381,9 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
     Public Function spXML(Optional env As String = "") As Dictionary(Of String, Integer)
         Dim ret As New Dictionary(Of String, Integer)
         If env.Length = 0 Then env = requestEnv
-        Dim command As New SqlCommand(
+        If env.Length > 0 Then
+
+            Dim command As New SqlCommand(
             String.Format(
                 "use {0}; " &
                 "select SO.OBJECT_ID as [ObjectID], " &
@@ -374,12 +399,16 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
             ),
             dbConnection
         )
-        Dim rs As SqlDataReader = command.ExecuteReader
-        While rs.Read
-            ret.Add(rs("ObjectName"), rs("ObjectID"))
-        End While
-        rs.Close()
+            Dim rs As SqlDataReader = command.ExecuteReader
+            While rs.Read
+                ret.Add(rs("ObjectName"), rs("ObjectID"))
+            End While
+            rs.Close()
+
+        End If
+
         Return ret
+
     End Function
 
     Public Function spParams(Optional env As String = "", Optional ID As Integer = 0) As Dictionary(Of String, String)
@@ -436,6 +465,9 @@ Public MustInherit Class EndPoint : Implements IDisposable : Implements IHttpHan
                 .ConnectionString = PriorityDBConnection
                 .Open()
             End With
+
+            ' Build list of SQL XML functions
+            .Items.Add("xmlSPList", spXML)
 
             ' Set API language
             .Items.Add("apilang", eLang.xml)
