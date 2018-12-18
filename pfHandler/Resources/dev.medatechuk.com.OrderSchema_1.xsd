@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="1" minOccurs="1" name="contact">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="email" type="xs:string" use="required" />
+                  <xs:attribute name="phone" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="address">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="address1" type="xs:string" />
+                    <xs:element name="address2" type="xs:string" />
+                    <xs:element name="address3" type="xs:string" />
+                    <xs:element name="city" type="xs:string" />
+                    <xs:element name="county" type="xs:string" />
+                    <xs:element name="postcode" type="xs:string" />
+                    <xs:element name="country" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element maxOccurs="1" minOccurs="1" name="order">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="item">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="property">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" use="required" />
+                              <xs:attribute name="value" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="qty" type="xs:integer" use="required" />
+                        <xs:attribute name="due" type="xs:dateTime" use="required" />
+                        <xs:attribute name="price" type="xs:decimal" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element maxOccurs="1" minOccurs="0" name="payment">
+                      <xs:complexType>
+                        <xs:attribute name="provider" type="xs:string" use="required" />
+                        <xs:attribute name="reference" type="xs:string" use="required" />
+                        <xs:attribute name="value" type="xs:decimal" use="required" />
+                        <xs:attribute name="currency" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="orderref" type="xs:string" use="required" />                              
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="optional" />
+            <xs:attribute name="desc" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

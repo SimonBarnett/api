@@ -1,0 +1,171 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Testhandler
+</name>
+</assembly>
+<members>
+<member name="T:pfHandler.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:pfHandler.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:pfHandler.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:pfHandler.My.Resources.Resources.dev_medatechuk_com_OrderSchema_1">
+<summary>
+  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;Windows-1252&quot;?&gt;
+&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+  &lt;xs:element name=&quot;request&quot;&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot; name=&quot;customer&quot;&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot; name=&quot;contact&quot;&gt;
+                &lt;xs:complexType&gt;
+                  &lt;xs:attribute name=&quot;name [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="T:pfHandler.request">
+<remarks/>
+</member>
+<member name="P:pfHandler.request.customer">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomer">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomer.contact">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomer.address">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomer.order">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomer.name">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomer.desc">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomerContact">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerContact.name">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerContact.email">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerContact.phone">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomerAddress">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.address1">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.address2">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.address3">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.city">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.county">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.postcode">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.country">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerAddress.type">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomerOrder">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrder.item">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrder.payment">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrder.orderref">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomerOrderItem">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItem.property">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItem.name">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItem.qty">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItem.due">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItem.price">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomerOrderItemProperty">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItemProperty.name">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderItemProperty.value">
+<remarks/>
+</member>
+<member name="T:pfHandler.requestCustomerOrderPayment">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderPayment.provider">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderPayment.reference">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderPayment.value">
+<remarks/>
+</member>
+<member name="P:pfHandler.requestCustomerOrderPayment.currency">
+<remarks/>
+</member>
+<member name="M:pfHandler.pfHandler.XmlStylesheet(System.Xml.Schema.XmlSchemaSet@)">
+ <summary>
+ Overides the XML schema for the handler
+ </summary>
+ <param name="Schemas">The XmlSchemaSet for the request</param>
+</member>
+<member name="M:pfHandler.pfHandler.StreamHandler(System.Xml.XmlTextWriter@,System.IO.StreamReader@)">
+ <summary>
+ Overrides XML handler with a StreamReader for business object parsing.
+ </summary>
+ <param name="w"></param>
+ <param name="Request"></param>
+</member>
+</members>
+</doc>

@@ -11,7 +11,6 @@ Imports System.IO
 Public Class TestHandler : Inherits iHandler : Implements xmlHandler
 
     Public Overrides Sub jsonHandler(ByRef w As JsonWriter, ByRef json As String)
-        'Throw New Exception
         Dim e As BusinessObject = JsonConvert.DeserializeObject(json, GetType(BusinessObject))
         e.write(w)
 

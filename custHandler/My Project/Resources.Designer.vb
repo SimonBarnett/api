@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("pfHandler.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("custHandler.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -58,25 +58,6 @@ Namespace My.Resources
             Set
                 resourceCulture = value
             End Set
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;Windows-1252&quot;?&gt;
-        '''&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-        '''  &lt;xs:element name=&quot;request&quot;&gt;
-        '''    &lt;xs:complexType&gt;
-        '''      &lt;xs:sequence&gt;
-        '''        &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot; name=&quot;customer&quot;&gt;
-        '''          &lt;xs:complexType&gt;
-        '''            &lt;xs:sequence&gt;
-        '''              &lt;xs:element maxOccurs=&quot;1&quot; minOccurs=&quot;1&quot; name=&quot;contact&quot;&gt;
-        '''                &lt;xs:complexType&gt;
-        '''                  &lt;xs:attribute name=&quot;name [rest of string was truncated]&quot;;.
-        '''</summary>
-        Friend ReadOnly Property dev_medatechuk_com_OrderSchema_1() As String
-            Get
-                Return ResourceManager.GetString("dev_medatechuk_com_OrderSchema_1", resourceCulture)
-            End Get
         End Property
     End Module
 End Namespace
