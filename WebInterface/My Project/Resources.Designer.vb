@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("PriPROC6.Interface.Web.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("PriPROC6.Interface.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -156,27 +156,49 @@ Namespace My.Resources
         '''declare @environment varchar(24) --mandatory
         '''set @environment = &apos;demo&apos;
         '''
-        '''declare @endpoint varchar(255) --mandatory
-        '''set @endpoint = &apos;basda-order-v3.ashx&apos;
+        '''declare @page varchar(255) --mandatory
+        '''set @page = &apos;basda-order-v3.ashx&apos;
         '''
         '''set @dd = datepart(day, getdate())
         '''set @mm = datepart(MONTH, getdate())
         '''set @yy = datepart(year, getdate())
         '''
-        '''select &apos;&apos;, (
-        '''	SELECT 
-        '''		[displayTime] as &quot;@Time&quot;
-        '''		  ,[BubbleID] as &quot;@BubbleID&quot;
-        '''      
-        '''		  --,[method]
-        '''		  --,[endpoint]
-        '''		  ,[severity] as &quot;@Severity&quot;
-        '''		  ,[fKey] as &quot;@fkey&quot;
-        '''		 [rest of string was truncated]&quot;;.
+        '''declare @Row bigint
+        '''set @Row = 0
+        '''
+        '''declare @tab as table(
+        '''	[row] bigint,
+        '''	[displayTime] [varchar](8), 
+        '''	[BubbleID] varchar(64),
+        '''	[severity] int	
+        ''')
+        '''
+        '''INSERT INTO @tab
+        '''SELECT 
+        '''	rank() ov [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property Query() As String
             Get
                 Return ResourceManager.GetString("Query", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to select &apos;&apos;, (
+        '''	select ENAME as &quot;@Name&quot;, (
+        '''		select	NAME as &quot;@Name&quot;, 
+        '''			case when len(FORMCLMNS.TITLE)=0 then COLUMNS.TITLE else  FORMCLMNS.TITLE end as &quot;@title&quot;, 
+        '''			case when HIDE=&apos;H&apos; then 1 else 0 end as &quot;@hide&quot;, 
+        '''			case when READONLY=&apos;R&apos; then 1 else 0 end as &quot;@readonly&quot;,
+        '''			case when READONLY=&apos;M&apos; then 1 else 0 end as &quot;@mandatory&quot;
+        '''		from system.dbo.FORMLIMITED 
+        '''		JOIN system.dbo.T$EXEC on T$EXEC.T$EXEC = FORMLIMITED.T$EXEC
+        '''		join system.dbo.FORMCLMNS on T$EXEC.T$EXEC = FORMCLMNS.FORM
+        '''		join sys [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property schema() As String
+            Get
+                Return ResourceManager.GetString("schema", resourceCulture)
             End Get
         End Property
         

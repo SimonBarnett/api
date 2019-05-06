@@ -1,13 +1,17 @@
 ﻿Imports System.Web
 
-Public Interface xmlHandler
-    'Sub ProcessRequest(ByRef context As HttpContext)
-    'Sub SetMeta(ByRef Metadata As xmlHandlerProps)
+Namespace Web
 
-End Interface
+    Public Interface xmlHandler
+        'Sub ProcessRequest(ByRef context As HttpContext)
+        'Sub SetMeta(ByRef Metadata As xmlHandlerProps)
 
-Public Interface xmlHandlerProps
-    ReadOnly Property EndPoint As String
-    ReadOnly Property Hidden As Boolean
+    End Interface
 
-End Interface
+    Public Interface xmlHandlerProps
+        ReadOnly Property EndPoint As String
+        ReadOnly Property Hidden As Boolean
+
+    End Interface
+
+End Namespace

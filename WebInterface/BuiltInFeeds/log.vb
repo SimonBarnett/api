@@ -1,13 +1,17 @@
 ﻿Imports System.ComponentModel.Composition
 
-<Export(GetType(xmlFeed))>
-<ExportMetadata("EndPoint", "log")>
-<ExportMetadata("Hidden", True)>
-Public Class logFeed : Inherits iFeed : Implements xmlFeed
+Namespace Web.BuiltIn
 
-    Overrides Function Query() As String
-        Return My.Resources.Query
+    <Export(GetType(xmlFeed))>
+    <ExportMetadata("EndPoint", "log")>
+    <ExportMetadata("Hidden", True)>
+    Public Class logFeed : Inherits iFeed : Implements xmlFeed
 
-    End Function
+        Overrides Function Query() As String
+            Return My.Resources.Query
 
-End Class
+        End Function
+
+    End Class
+
+End Namespace

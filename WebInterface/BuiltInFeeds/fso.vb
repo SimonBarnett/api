@@ -1,19 +1,22 @@
 ﻿Imports System.ComponentModel.Composition
 Imports System.IO
 
-<Export(GetType(xmlFeed))>
-<ExportMetadata("EndPoint", "fso")>
-<ExportMetadata("Hidden", True)>
-Public Class fsoFeed : Inherits iFeed : Implements xmlFeed
+Namespace Web.BuiltIn
 
-    Public Overrides Function Query() As String
+    <Export(GetType(xmlFeed))>
+    <ExportMetadata("EndPoint", "fso")>
+    <ExportMetadata("Hidden", True)>
+    Public Class fsoFeed : Inherits iFeed : Implements xmlFeed
 
-        Using SR As New StreamReader(sqlFile.FullName)
-            Return SR.ReadToEnd
+        Public Overrides Function Query() As String
 
-        End Using
+            Using SR As New StreamReader(sqlFile.FullName)
+                Return SR.ReadToEnd
 
-    End Function
+            End Using
 
-End Class
+        End Function
 
+    End Class
+
+End Namespace

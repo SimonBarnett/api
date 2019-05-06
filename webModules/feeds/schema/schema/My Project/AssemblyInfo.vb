@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("WebInterface")>
-<Assembly: AssemblyDescription("A MEF framework for API Endpoints")>
-<Assembly: AssemblyCompany("Medatech UK")>
-<Assembly: AssemblyProduct("WebInterface")>
-<Assembly: AssemblyCopyright("")>
-<Assembly: AssemblyTrademark("Future Proof Your Business.")>
+<Assembly: AssemblyTitle("schema")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("schema")>
+<Assembly: AssemblyCopyright("Copyright ©  2017")>
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("7875a386-02c6-48a5-a880-b42f47e3e15a")>
+<Assembly: Guid("00fd7a09-e5d9-4859-b8fc-bcaa26332915")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("6.1.0.*")>
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("1.0.0.0")>

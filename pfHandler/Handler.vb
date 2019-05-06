@@ -119,11 +119,11 @@ Public Class pfHandler : Inherits iHandler : Implements xmlHandler
             log.LogData.AppendFormat("Creating order {0} for customer {1}.", .order.orderref, .name, .desc)
 
             Using ord As New orderLoading
-                Dim o As priRow = ord.AddRow(.name, .order.orderref)
+                Dim o As priRow = ord.addRow(.name, .order.orderref)
 
                 For Each orderitem As requestCustomerOrderItem In .order.item
                     With orderitem
-                        ord.Orderitems.AddRow(o, .name, .qty)
+                        ord.Orderitems.addRow(o, .name, .qty)
 
                     End With
 
@@ -131,7 +131,7 @@ Public Class pfHandler : Inherits iHandler : Implements xmlHandler
 
                 If Not .address(eAddressType.Delivery) Is Nothing Then
                     With .address(eAddressType.Delivery)
-                        ord.DeliveryAddress.AddRow(o,
+                        ord.DeliveryAddress.addRow(o,
                             .address1, .address2, .address3,
                             .county, .postcode, .country
                         )
