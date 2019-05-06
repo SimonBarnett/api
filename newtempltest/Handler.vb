@@ -1,15 +1,15 @@
 ﻿Imports System.ComponentModel.Composition
 Imports System.Xml
-Imports System.Web
-Imports PriPROC6.Interface.Web
-Imports System.IO
 Imports Newtonsoft.Json
+Imports System.Web
+Imports System.IO
 Imports System.Reflection
+Imports PriPROC6.Interface.Web
 
 <Export(GetType(xmlHandler))>
-<ExportMetadata("EndPoint", "custHandler")>
+<ExportMetadata("EndPoint", "newtempltest")>
 <ExportMetadata("Hidden", False)>
-Public Class custHandler : Inherits iHandler : Implements xmlHandler
+Public Class newtempltest : Inherits iHandler : Implements xmlHandler
 
     ''' <summary>
     ''' Overides the XML schema for the handler
@@ -29,6 +29,16 @@ Public Class custHandler : Inherits iHandler : Implements xmlHandler
     End Sub
 
     ''' <summary>
+    ''' Overrides XML handler with a StreamReader for business object parsing.
+    ''' </summary>
+    ''' <param name="w"></param>
+    ''' <param name="Request"></param>
+    Public Overrides Sub StreamHandler(ByRef w As XmlTextWriter, ByRef Request As StreamReader)
+        'MyBase.StreamHandler(w, Request)
+
+    End Sub
+
+    ''' <summary>
     ''' Overrides XML handler with an XML document for manual parsing.
     ''' </summary>
     ''' <param name="w">The response stream as a XmlTextWriter</param>
@@ -41,7 +51,7 @@ Public Class custHandler : Inherits iHandler : Implements xmlHandler
         '    With F
         '        With .AddRow()
         '            .CUSTNAME = "TQ000043"
-        '            .BUSINESSTYPE = "Wankers"
+        '            .BUSINESSTYPE = "BusType"
         '            .OWNERLOGIN = "SimonB"
         '            .CREATEDDATE = Now
 

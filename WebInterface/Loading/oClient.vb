@@ -41,9 +41,9 @@ Namespace oData
                     .Path = String.Format(
                     "/odata/Priority/{0}/{1}{2}",
                     WebConfigurationManager.AppSettings("tabulaini"),
-                    "live",
+                    HttpContext.Current.Request("environment"),
                     Path
-                ) 'HttpContext.Current.Request("environment")
+                )
 
                     log.LogData.AppendFormat("{0} ROOT{1}", Method.ToUpper, Path).AppendLine()
 

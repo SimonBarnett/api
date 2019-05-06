@@ -1,9 +1,10 @@
 ﻿Imports System.ComponentModel.Composition
 Imports System.Xml
-Imports System.Web
-Imports PriPROC6.Interface.Web
-Imports System.IO
 Imports Newtonsoft.Json
+Imports System.Web
+Imports System.IO
+Imports System.Reflection
+Imports PriPROC6.Interface.Web
 
 <Export(GetType(xmlHandler))>
 <ExportMetadata("EndPoint", "$itemname$")>
@@ -46,45 +47,35 @@ Public Class $itemname$ : Inherits iHandler : Implements xmlHandler
 
         'log.LogData.AppendFormat("Running in company {0}.", requestEnv).AppendLine()
 
-        'Using cust As New priForm("CUSTOMERS", "CUSTNAME", "CUSTDES")
-        '    With cust
-        '        Dim contacts = .AddForm("CUSTPERSONNEL", "NAME", "FIRM", "EMAIL")
-        '        Dim tasks = .AddForm("CUSTNOTES", "SUBJECT", "CURDATE", "STIME", "ETIME")
-        '        Dim addy = contacts.AddForm("BILLTO", "ADDRESS", "ADDRESS2", "ZIP")
+        'Using F As New CUSTOMERS(Assembly.GetExecutingAssembly)
+        '    With F
+        '        With .AddRow()
+        '            .CUSTNAME = "TQ000043"
+        '            .BUSINESSTYPE = "BusType"
+        '            .OWNERLOGIN = "SimonB"
+        '            .CREATEDDATE = Now
 
-        '        Dim r As priRow = .AddRow("Cust0001", "Customer")
+        '            If Not .Get() Then Throw .Exception
 
-        '        addy.AddRow(
-        '            contacts.AddRow(
-        '                r, "Si B", "Customer", "si@ntsa.org.uk"
-        '            ),
-        '            "48 Great Park", "Leyland", "pr25 3un"
-        '        )
+        '            With .CUSTPERSONNEL.AddRow
+        '                .NAME = "Joe Bloggs"
+        '                .AGENTCODE = "007"
+        '                .CIVFLAG = "N"
 
-        '        addy.AddRow(
-        '            contacts.AddRow(
-        '                r, "jo B", "Customer", "jo@ntsa.org.uk"
-        '            ),
-        '            "49 Great Park", "Leyland", "pr25 3un"
-        '        )
+        '                If .Post Then
 
-        '        With contacts
-        '            .AddRow(r, "Emilie B", "Customer", Nothing)
-        '        End With
+        '                End If
 
-        '        With tasks
-        '            .AddRow(r, "A Task", "2017-08-28T00:00Z", "10:00", "12:00")
-        '            .AddRow(r, "B Task", "2017-08-29T00:00Z", "12:00", "11:00")
+        '            End With
+
+        '            .ADDRESS3 = "test"
+        '            If .Patch() Then
+
+        '            End If
+
         '        End With
 
         '    End With
-
-        '    setKey(BubbleID)
-
-        '    Dim ex As Exception = Nothing
-        '    cust.Post(ex)
-        '    If Not TypeOf ex Is apiResponse Then Throw (ex)
-        '    TryCast(ex, apiResponse).toXML(w)
 
         'End Using
 
