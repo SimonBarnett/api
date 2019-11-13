@@ -92,4 +92,10 @@ Public Class $itemname$ : Inherits iHandler : Implements xmlHandler
 
     End Sub
 
+    Public Overrides Sub ProcessRequest(context As HttpContext)
+        MyBase.ProcessRequest(context)
+
+
+    End Sub
+
 End Class
