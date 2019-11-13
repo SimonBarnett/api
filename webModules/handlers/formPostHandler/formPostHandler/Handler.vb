@@ -14,11 +14,11 @@ Public Class formPostHandler : Inherits iHandler : Implements xmlHandler
 
     Public Overrides Sub ProcessRequest(context As HttpContext)
 
+        Dim f As Boolean = False
         Try
             With context
                 If String.IsNullOrEmpty(.Request("$fm")) Then Throw New Exception("Invalid Form.")
 
-                Dim f As Boolean = False
                 For Each t As Type In Assembly.GetExecutingAssembly.GetTypes
                     If t.BaseType Is GetType(oForm) And String.Compare(t.Name, .Request("$fm"), True) = 0 Then
 
@@ -36,7 +36,6 @@ Public Class formPostHandler : Inherits iHandler : Implements xmlHandler
                         ld.Post()
 
                     End If
-
                 Next
 
                 If Not f Then
