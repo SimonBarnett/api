@@ -14,30 +14,41 @@ Public Class formPostHandler : Inherits iHandler : Implements xmlHandler
 
     Public Overrides Sub ProcessRequest(context As HttpContext)
 
-        With context
-            For Each t As Type In Assembly.GetExecutingAssembly.GetTypes
-                If t.BaseType Is GetType(oForm) And String.Compare(t.Name, .Request("$fm"), True) = 0 Then
+        Try
+            With context
+                If String.IsNullOrEmpty(.Request("$fm")) Then Throw New Exception("Invalid Form.")
 
-                    Try
+                Dim f As Boolean = False
+                For Each t As Type In Assembly.GetExecutingAssembly.GetTypes
+                    If t.BaseType Is GetType(oForm) And String.Compare(t.Name, .Request("$fm"), True) = 0 Then
+
+                        f = True
                         Dim ld As oForm = Activator.CreateInstance(t, Assembly.GetExecutingAssembly, Nothing)
-                        Dim n = ld.GetType.GetMethod("AddRow").Invoke(ld, Nothing)
+                        Dim n As oRow = ld.GetType.GetMethod("AddRow").Invoke(ld, Nothing)
 
                         For Each I In n.GetType.GetProperties()
                             If I.CanWrite And Not String.IsNullOrEmpty(.Request(I.Name)) Then
-                                ld.GetType.GetProperty(I.Name).SetValue(ld, .Request(I.Name))
+                                n.GetType.GetProperty(I.Name).SetValue(n, .Request(I.Name))
 
                             End If
                         Next
 
                         ld.Post()
 
-                    Catch ex As Exception
+                    End If
 
-                    End Try
+                Next
+
+                If Not f Then
+                    Throw New Exception(String.Format("Unknown Form: {0}.", .Request("$fm")))
 
                 End If
-            Next
-        End With
+
+            End With
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 
