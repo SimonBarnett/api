@@ -1,0 +1,159 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SolidWorks
+</name>
+</assembly>
+<members>
+<member name="T:SolidWorks.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:SolidWorks.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:SolidWorks.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:SolidWorks.My.Resources.Resources.install">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
+<member name="P:SolidWorks.My.Resources.Resources.Query">
+<summary>
+  Looks up a localized string similar to /****
+For XML SQL statement here ...
+
+***/.
+</summary>
+</member>
+<member name="P:SolidWorks.My.Resources.Resources.SolidWorks">
+<summary>
+  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+  &lt;xs:element name=&quot;xml&quot;&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name=&quot;transactions&quot;&gt;
+          &lt;xs:complexType&gt;
+            &lt;xs:sequence&gt;
+              &lt;xs:element name=&quot;transaction&quot;&gt;
+                &lt;xs:complexType&gt;
+                  &lt;xs:sequence&gt;
+                    &lt;xs:element name=&quot;document&quot;&gt;
+                   [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="M:SolidWorks.SolidWorks.XmlStylesheet(System.Xml.Schema.XmlSchemaSet@)">
+ <summary>
+ Overides the XML schema for the handler
+ </summary>
+ <param name="Schemas">The XmlSchemaSet for the request</param>
+</member>
+<member name="M:SolidWorks.SolidWorks.StreamHandler(System.Xml.XmlTextWriter@,System.IO.StreamReader@)">
+ <summary>
+ Overrides XML handler w ith a StreamReader for business object parsing.
+ </summary>
+ <param name="w"></param>
+ <param name="Request"></param>
+</member>
+<member name="T:SolidWorks.xml">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xml.transactions">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactions">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactions.transaction">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransaction">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransaction.document">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransaction.date">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransaction.type">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransaction.vaultname">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransactionDocument">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocument.configuration">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocument.aliasset">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocument.pdmweid">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransactionDocumentConfiguration">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfiguration.attribute">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfiguration.references">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfiguration.name">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransactionDocumentConfigurationAttribute">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationAttribute.name">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationAttribute.value">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocument">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocument.configuration">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocument.aliasset">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocument.pdmweid">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocumentConfiguration">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocumentConfiguration.attribute">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocumentConfiguration.name">
+<remarks/>
+</member>
+<member name="T:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocumentConfigurationAttribute">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocumentConfigurationAttribute.name">
+<remarks/>
+</member>
+<member name="P:SolidWorks.xmlTransactionsTransactionDocumentConfigurationDocumentConfigurationAttribute.value">
+<remarks/>
+</member>
+</members>
+</doc>

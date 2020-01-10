@@ -88,7 +88,7 @@ Namespace Web
                                 XmlStylesheet(ret.Schemas)
                                 If ret.Schemas.Count > 0 Then
                                     ret.ValidationType = ValidationType.Schema
-                                    log.LogData.AppendFormat("{0} XSDs loaded.", _thisRequest.Schemas.Schemas.Count).AppendLine()
+                                    log.LogData.AppendFormat("{0} XSD(s) loaded.", _thisRequest.Schemas.Schemas.Count + 1).AppendLine()
                                     reader.BaseStream.Position = 0
 
                                     ' And load

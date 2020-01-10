@@ -123,7 +123,7 @@ Namespace oData
                                 lder.LoadXml(str)
                                 With TryCast(.Response, HttpWebResponse)
                                     e = New Exception(
-                                        String.Format("{0}",
+                                        String.Format("{1}",
                                             CInt(.StatusCode).ToString,
                                             lder.SelectSingleNode(
                                                 "FORM/InterfaceErrors/text"
@@ -135,30 +135,45 @@ Namespace oData
 
                             Catch xmlex As Exception
                                 If Len(str) > 0 Then
-                                    Select Case TryCast(.Response, HttpWebResponse).StatusCode
-                                        Case HttpStatusCode.NotFound
-                                            With TryCast(.Response, HttpWebResponse)
-                                                e = New oException(
+                                    If _Request.Method.ToUpper = "GET" And TryCast(.Response, HttpWebResponse).StatusCode = HttpStatusCode.InternalServerError Then
+                                        With TryCast(.Response, HttpWebResponse)
+                                            e = New oException(
+                                                HttpStatusCode.NotFound,
+                                                String.Format("[{0}] {1}",
+                                                    CInt(HttpStatusCode.NotFound).ToString,
+                                                    HttpStatusCode.NotFound.ToString
+                                                )
+                                            )
+                                        End With
+
+                                    Else
+
+                                        Select Case TryCast(.Response, HttpWebResponse).StatusCode
+                                            Case HttpStatusCode.NotFound
+                                                With TryCast(.Response, HttpWebResponse)
+                                                    e = New oException(
                                                     .StatusCode,
                                                     String.Format("[{0}] {1}",
                                                         CInt(.StatusCode).ToString,
                                                         .StatusCode.ToString
                                                     )
                                                 )
-                                            End With
+                                                End With
 
-                                        Case Else
-                                            With TryCast(.Response, HttpWebResponse)
-                                                e = New oException(
+                                            Case Else
+                                                With TryCast(.Response, HttpWebResponse)
+                                                    e = New oException(
                                                     .StatusCode,
                                                     String.Format("[{0}] {1}",
                                                         CInt(.StatusCode).ToString,
                                                         str
                                                     )
                                                 )
-                                            End With
+                                                End With
 
-                                    End Select
+                                        End Select
+
+                                    End If
 
                                 Else
                                     With TryCast(.Response, HttpWebResponse)

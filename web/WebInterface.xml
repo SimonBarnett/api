@@ -1,0 +1,414 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WebInterface
+</name>
+</assembly>
+<members>
+<member name="T:PriPROC6.Interface.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.Install">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.log">
+<summary>
+  Looks up a localized string similar to USE [system]
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N&apos;[dbo].[apiLog]&apos;) AND type in (N&apos;U&apos;))
+BEGIN
+	CREATE TABLE [dbo].[apiLog](
+		[BubbleID] [varchar](64) NOT NULL,
+		[logDate] [date] NOT NULL CONSTRAINT [DF_apiLog_logDate]  DEFAULT (getdate()),
+		[logTime] [time] NOT NULL CONSTRAINT [DF_apiLog_logTime]  DEFAULT (getdate()),
+		[environment] [varchar](50) NOT NULL,
+		[method] [nchar](10) NOT NULL,
+		[endpoint] [varchar](250) NOT NULL,
+		[severity] [int] NULL,
+		[logXml [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.logDetail">
+<summary>
+  Looks up a localized string similar to declare @dd int --mandatory
+declare @mm int --mandatory
+declare @yy int --mandatory
+
+set @dd = datepart(day, getdate()) -1
+set @mm = datepart(MONTH, getdate())
+set @yy = datepart(year, getdate())
+
+declare @environment varchar(24) --mandatory
+set @environment = &apos;demo&apos;
+
+declare @BubbleID varchar(64) --mandatory
+set @BubbleID = &apos;e4592754-7f54-421c-8437-f54c00780a04&apos;
+
+select
+	1 as Tag,
+	Null as Parent,		
+	@BubbleID as &quot;Log!1!BubbleID&quot;,  
+	[severity] as &quot;Log!1!Severity&quot;,
+	environment as &quot;Log!1 [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.logXML">
+<summary>
+  Looks up a localized string similar to declare @dd int --mandatory
+declare @mm int --mandatory
+declare @yy int --mandatory
+
+set @dd = datepart(day, getdate()) -1
+set @mm = datepart(MONTH, getdate())
+set @yy = datepart(year, getdate())
+
+declare @environment varchar(24) --mandatory
+set @environment = &apos;demo&apos;
+
+declare @BubbleID varchar(64) --mandatory
+set @BubbleID = &apos;e4592754-7f54-421c-8437-f54c00780a04&apos;
+
+select
+	logXml
+	 
+FROM [system].[dbo].[apiLog]
+where 0=0
+	and [logYear] = @yy
+	and [logMonth] = @mm
+	and [logDay]= @dd
+	and [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.Query">
+<summary>
+  Looks up a localized string similar to declare @dd int
+declare @mm int
+declare @yy int
+
+declare @environment varchar(24) --mandatory
+set @environment = &apos;demo&apos;
+
+declare @page varchar(255) --mandatory
+set @page = &apos;basda-order-v3.ashx&apos;
+
+set @dd = datepart(day, getdate())
+set @mm = datepart(MONTH, getdate())
+set @yy = datepart(year, getdate())
+
+declare @Row bigint
+set @Row = 0
+
+declare @tab as table(
+	[row] bigint,
+	[displayTime] [varchar](8), 
+	[BubbleID] varchar(64),
+	[severity] int	
+)
+
+INSERT INTO @tab
+SELECT 
+	rank() ov [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.schema">
+<summary>
+  Looks up a localized string similar to select &apos;&apos;, (
+	select ENAME as &quot;@Name&quot;, (
+		select	NAME as &quot;@Name&quot;, 
+			case when len(FORMCLMNS.TITLE)=0 then COLUMNS.TITLE else  FORMCLMNS.TITLE end as &quot;@title&quot;, 
+			case when HIDE=&apos;H&apos; then 1 else 0 end as &quot;@hide&quot;, 
+			case when READONLY=&apos;R&apos; then 1 else 0 end as &quot;@readonly&quot;,
+			case when READONLY=&apos;M&apos; then 1 else 0 end as &quot;@mandatory&quot;
+		from system.dbo.FORMLIMITED 
+		JOIN system.dbo.T$EXEC on T$EXEC.T$EXEC = FORMLIMITED.T$EXEC
+		join system.dbo.FORMCLMNS on T$EXEC.T$EXEC = FORMCLMNS.FORM
+		join sys [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.setfKey">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc;
+update [dbo].[apiLog] 
+set [fKey] = &apos;{1}&apos;
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.setfKeyReplace">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc;
+update [dbo].[apiLog] 
+set [fKey] = @BubbleID
+where [fKey] = &apos;{1}&apos;
+update [dbo].[apiLog] 
+set [fKey] = &apos;{1}&apos;
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.setLog">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc
+
+update [dbo].[apiLog] set 
+[severity] = &apos;{2}&apos;,
+[logText] = &apos;{1}&apos;
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="P:PriPROC6.Interface.My.Resources.Resources.setXML">
+<summary>
+  Looks up a localized string similar to USE [system]
+declare @BubbleID varchar(64)
+select top 1 
+	@BubbleID = BubbleID 
+from [dbo].[apiLog]
+WHERE BubbleID = &apos;{0}&apos;
+order by logDate Desc, logTime Desc;
+declare @request xml;
+set @request = &apos;{1}&apos;;
+update [dbo].[apiLog] set 
+[logXml] = @request
+where BubbleID = @BubbleID.
+</summary>
+</member>
+<member name="M:PriPROC6.Interface.Web.EndPoint.Environments">
+ <summary>
+ A List of valid Priority Companies
+ </summary>
+ <returns>List(Of String)</returns>
+</member>
+<member name="M:PriPROC6.Interface.Web.EndPoint.setKey(System.String,System.Boolean)">
+ <summary>
+ Set a key value of the saved XML.
+ Duplicates keys throw an error
+ unless optional Overwrite is True.
+ </summary>
+ <param name="x">The key value from the foreign system</param>
+ <param name="Overwrite">Associate this log with saved key</param>
+</member>
+<member name="M:PriPROC6.Interface.Web.iFeed.Query">
+ <summary>
+ The sql query that will be executed.
+ Parameters are caputured from the GET request.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:PriPROC6.Interface.Web.iFeed.InstallQuery">
+ <summary>
+ Any SQL CREATEs for functions used by the query.
+ PATCHing the MEF feed executes the CREATE in the selected environment.
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:PriPROC6.Interface.oData.oClient">
+ <summary>
+ An oData client
+ </summary>
+</member>
+<member name="P:PriPROC6.Interface.oData.oClient.log">
+ <summary>
+ Get / Set the log for this transaction.
+ </summary>
+ <returns>oMsgLog</returns>
+</member>
+<member name="M:PriPROC6.Interface.oData.oClient.#ctor(System.String,System.String)">
+ <summary>
+ oClient constructor method.
+ </summary>
+ <param name="Path">String</param>
+ <param name="Method">String</param>
+</member>
+<member name="M:PriPROC6.Interface.oData.oClient.GetResponse(System.IO.MemoryStream@)">
+ <summary>
+ Returns a WebResponse or an exception in 
+ response to the Requested MemoryStream.
+ </summary>
+ <param name="Request"></param>
+ <returns>Object</returns>
+</member>
+<member name="T:PriPROC6.Interface.oData.oException">
+ <summary>
+ An inherited Exception for storing oData/http errors.
+ </summary>
+</member>
+<member name="P:PriPROC6.Interface.oData.oException.StatusCode">
+ <summary>
+ The HttpStatusCode of the message.
+ Returns HttpStatusCode.Unused if no code returned.
+ </summary>
+ <returns>HttpStatusCode</returns>
+</member>
+<member name="M:PriPROC6.Interface.oData.oException.#ctor(System.Net.HttpStatusCode,System.String)">
+ <summary>
+ Constructor Method.
+ </summary>
+ <param name="Message">String</param>
+</member>
+<member name="T:PriPROC6.Interface.oData.oForm">
+ <summary>
+ Defines a Priorty Form for oData.
+ </summary>
+</member>
+<member name="P:PriPROC6.Interface.oData.oForm.Parent">
+ <summary>
+ The parent row of this form.
+ </summary>
+ <returns>oRow</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oForm.Sender">
+ <summary>
+ The calling assembly.
+ </summary>
+ <returns>Assembly</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oForm.Name">
+ <summary>
+ The name of the form.
+ </summary>
+ <returns>String</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oForm.log">
+ <summary>
+ Get / Set the log for this transaction.
+ </summary>
+ <returns>oMsgLog</returns>
+</member>
+<member name="M:PriPROC6.Interface.oData.oForm.#ctor(System.Reflection.Assembly@,PriPROC6.Interface.oData.oRow)">
+ <summary>
+ Form Constructor method.
+ </summary>
+ <param name="Parent">oRow</param>
+</member>
+<member name="M:PriPROC6.Interface.oData.oForm.Post">
+ <summary>
+ Post the form oData to the Priority server.
+ </summary>
+</member>
+<member name="T:PriPROC6.Interface.oData.oRow">
+ <summary>
+ Defines a Priorty Form Row for oData.
+ </summary>
+</member>
+<member name="M:PriPROC6.Interface.oData.oRow.#ctor(PriPROC6.Interface.oData.oForm)">
+ <summary>    
+ Row Constructor method.
+ </summary>
+ <param name="Parent">oForm</param>
+</member>
+<member name="M:PriPROC6.Interface.oData.oRow.setProperty(System.Object,System.String)">
+ <summary>
+ Set the value of the property.
+ </summary>
+ <param name="Value">The new value for the property.</param>
+ <param name="memberName">Optional member name obtained through reflection.</param>
+</member>
+<member name="M:PriPROC6.Interface.oData.oRow.getProperty(System.String)">
+ <summary>
+ Get the value of the property.
+ </summary>
+ <param name="memberName"></param>
+ <returns>Optional member name obtained through reflection.</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.Parent">
+ <summary>
+ Returns the parent form of this row.
+ </summary>
+ <returns>oForm</returns>
+</member>
+<member name="F:PriPROC6.Interface.oData.oRow.SubForms">
+ <summary>
+ A Dictionary containing sub forms of this row.
+ </summary>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.FormType">
+ <summary>
+ Returns the form Type that the row belogs to.
+ </summary>
+ <returns>Type</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.Key">
+ <summary>
+ Returns the key for this row.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.Path">
+ <summary>
+ Return the uri path for this row, 
+ including recusive parentage.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.Exception">
+ <summary>
+ Contains the last exception from posting this row.
+ </summary>
+ <returns>oException</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.log">
+ <summary>
+ Get / Set the log for this transaction from HttpContext.
+ </summary>
+ <returns>oMsgLog</returns>
+</member>
+<member name="P:PriPROC6.Interface.oData.oRow.RequestStream">
+ <summary>
+ Returns a MemoryStream containing oData formatted data for this row.
+ </summary>
+ <returns>MemoryStream</returns>
+</member>
+<member name="M:PriPROC6.Interface.oData.oRow.Post">
+ <summary>
+ Send the content of the requeststream to the oData server.
+ Returns a boolean value indicating POST success.
+ </summary>
+ <returns>Boolean</returns>
+</member>
+<member name="M:PriPROC6.Interface.oData.oRow.Patch">
+ <summary>
+ Send the content of the requeststream to the oData server.
+ Returns a boolean value indicating PATCH success.
+ </summary>
+ <returns>Boolean</returns>
+</member>
+<member name="M:PriPROC6.Interface.oData.oRow.Get">
+ <summary>
+ Send the content of the requeststream to the oData server.
+ Returns a boolean value indicating PATCH success.
+ </summary>
+ <returns>Boolean</returns>
+</member>
+</members>
+</doc>

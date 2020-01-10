@@ -8,6 +8,7 @@ Imports PriPROC6.Interface.Web
 
 Namespace oData
 
+
 #Region "Attributes"
 
     <System.AttributeUsage(System.AttributeTargets.Class)>
@@ -442,6 +443,12 @@ Namespace oData
         ''' <returns>Boolean</returns>
         Public Function Post() As Boolean
 
+            System.Net.ServicePointManager.ServerCertificateValidationCallback =
+          Function(se As Object,
+          cert As System.Security.Cryptography.X509Certificates.X509Certificate,
+          chain As System.Security.Cryptography.X509Certificates.X509Chain,
+          sslerror As System.Net.Security.SslPolicyErrors) True
+
             Dim e As Object
             Using client As New oClient(Me.Path, "POST")
                 e = client.GetResponse(RequestStream)
@@ -510,6 +517,12 @@ Namespace oData
         ''' <returns>Boolean</returns>
         Public Function Patch() As Boolean
 
+            System.Net.ServicePointManager.ServerCertificateValidationCallback =
+          Function(se As Object,
+          cert As System.Security.Cryptography.X509Certificates.X509Certificate,
+          chain As System.Security.Cryptography.X509Certificates.X509Chain,
+          sslerror As System.Net.Security.SslPolicyErrors) True
+
             Dim e As Object
             Using client As New oClient(
                 String.Format(
@@ -569,6 +582,12 @@ Namespace oData
         ''' <returns>Boolean</returns>
         Public Function [Get]() As Boolean
 
+            System.Net.ServicePointManager.ServerCertificateValidationCallback =
+          Function(se As Object,
+          cert As System.Security.Cryptography.X509Certificates.X509Certificate,
+          chain As System.Security.Cryptography.X509Certificates.X509Chain,
+          sslerror As System.Net.Security.SslPolicyErrors) True
+
             Dim e As Object
             Using client As New oClient(
                 String.Format(
@@ -619,6 +638,7 @@ Namespace oData
             End Select
 
         End Function
+
 #End Region
 
     End Class
